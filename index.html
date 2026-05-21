@@ -1,0 +1,2112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Interview Skills | B1 Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F7FC;
+  --navy:#1E3A5F;
+  --navy-mid:#2C5282;
+  --navy-pale:#D6E4F5;
+  --gold:#C9A227;
+  --gold-pale:#FDF5D6;
+  --green:#1A7A5E;
+  --green-pale:#D4EEE5;
+  --coral:#C84B31;
+  --coral-pale:#FDEAE4;
+  --text:#1C1C2E;
+  --muted:#6B7280;
+  --white:#fff;
+  --radius:16px;
+  --shadow:0 4px 24px rgba(30,58,95,0.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+ 
+/* HEADER */
+.app-header{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);
+  color:#fff;padding:14px 28px;display:flex;align-items:center;
+  justify-content:space-between;flex-wrap:nowrap;gap:10px;
+  position:sticky;top:0;z-index:100;box-shadow:0 4px 20px rgba(0,0,0,0.2);
+  min-height:80px;
+}
+.hdr-course{font-size:.7rem;opacity:.75;font-weight:700;letter-spacing:.7px;text-transform:uppercase;margin-bottom:3px}
+.hdr-title{font-size:1.35rem;font-weight:900;letter-spacing:-.3px}
+.score-pill{
+  background:rgba(255,255,255,0.2);border-radius:50px;
+  padding:8px 18px;display:flex;align-items:center;gap:8px;
+  font-weight:900;font-size:1rem;backdrop-filter:blur(8px);
+}
+.score-pill span{font-size:.78rem;opacity:.7;font-weight:600}
+ 
+/* NAV */
+.nav-strip{
+  background:#fff;border-bottom:2px solid var(--navy-pale);
+  padding:6px 12px;display:flex;flex-wrap:nowrap;overflow-x:auto;gap:4px;
+  position:sticky;top:80px;z-index:99;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+  -webkit-overflow-scrolling:touch;
+}
+.nav-strip::-webkit-scrollbar{height:3px}
+.nav-strip::-webkit-scrollbar-thumb{background:var(--navy);border-radius:4px}
+.nav-btn{
+  padding:8px 14px;background:none;border:none;
+  border-radius:50px;cursor:pointer;
+  font-family:'Nunito',sans-serif;font-weight:700;font-size:.78rem;
+  color:var(--muted);white-space:nowrap;transition:all .2s;
+  display:flex;align-items:center;gap:5px;
+  flex-shrink:0;
+}
+.nav-btn:hover{background:var(--navy-pale);color:var(--navy)}
+.nav-btn.active{background:var(--navy);color:#fff;font-weight:800}
+.nav-btn.done{color:var(--green)}
+.nav-btn.done:hover{background:var(--green-pale);color:var(--green)}
+.nav-btn.done.active{background:var(--green);color:#fff;font-weight:800}
+.nav-btn .ck{display:none}
+.nav-btn.done .ck{display:inline}
+ 
+/* MAIN */
+.main{max-width:860px;margin:0 auto;padding:26px 18px 110px}
+.section{display:none;animation:fadeUp .35s ease}
+.section.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+ 
+/* ACT HEADER */
+.act-hdr{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.act-num{
+  width:44px;height:44px;min-width:44px;border-radius:50%;
+  background:var(--gold);color:#fff;font-weight:900;font-size:1.1rem;
+  display:flex;align-items:center;justify-content:center;
+}
+.act-title{font-size:1.3rem;font-weight:900;color:var(--navy)}
+.act-sub{font-size:.85rem;color:var(--muted);margin-top:3px}
+ 
+/* CARD */
+.card{background:#fff;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);margin-bottom:14px}
+ 
+/* BUTTONS */
+.btn{padding:11px 24px;border:none;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:800;font-size:.93rem;cursor:pointer;transition:all .2s}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-mid);transform:translateY(-2px);box-shadow:0 6px 20px rgba(30,58,95,.3)}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:#b8910f;transform:translateY(-2px)}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none!important;box-shadow:none!important}
+ 
+/* INFO BOX */
+.info-box{background:var(--navy-pale);border-left:4px solid var(--navy);border-radius:0 10px 10px 0;padding:12px 16px;margin-bottom:18px;font-size:.87rem;font-weight:700;color:var(--navy)}
+ 
+/* PROGRESS */
+.prog-bar{width:100%;height:8px;background:var(--navy-pale);border-radius:10px;margin-bottom:18px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--navy),var(--navy-mid));border-radius:10px;transition:width .5s}
+ 
+/* FEEDBACK */
+.fb{padding:13px 18px;border-radius:10px;font-weight:700;font-size:.88rem;margin-top:12px;display:none}
+.fb.ok{background:var(--green-pale);color:var(--green);border-left:4px solid var(--green)}
+.fb.err{background:var(--coral-pale);color:var(--coral);border-left:4px solid var(--coral)}
+.fb.show{display:block}
+ 
+/* SHAKE */
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.shake{animation:shake .4s ease}
+ 
+/* ── ACT 1: PREDICT ── */
+.photo-wrap{border-radius:var(--radius);overflow:hidden;margin-bottom:18px;box-shadow:var(--shadow)}
+.photo-wrap svg{width:100%;display:block}
+.s-group{margin-bottom:12px}
+.s-label{font-weight:700;color:var(--navy);margin-bottom:5px;font-size:.85rem;display:flex;align-items:center;gap:7px}
+.s-num{width:22px;height:22px;border-radius:50%;background:var(--gold);color:#fff;font-size:.72rem;font-weight:900;display:flex;align-items:center;justify-content:center;min-width:22px}
+.s-input{width:100%;padding:11px 14px;border:2px solid var(--navy-pale);border-radius:10px;font-family:'Nunito',sans-serif;font-size:.9rem;resize:none;transition:border-color .2s;min-height:64px}
+.s-input:focus{outline:none;border-color:var(--navy)}
+.wc{text-align:right;font-size:.73rem;color:var(--muted);margin-top:3px}
+ 
+/* ── ACT 2: VIDEO CARD ── */
+.video-card{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);
+  border-radius:var(--radius);padding:28px 24px;margin-bottom:16px;
+  display:flex;align-items:center;gap:20px;cursor:pointer;
+  text-decoration:none;transition:transform .2s,box-shadow .2s;
+  box-shadow:var(--shadow);
+}
+.video-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(30,58,95,.3)}
+.video-icon{width:60px;height:60px;min-width:60px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:1.8rem}
+.video-info{color:#fff}
+.video-title{font-size:1.05rem;font-weight:900;margin-bottom:4px}
+.video-sub{font-size:.82rem;opacity:.8}
+.video-arrow{margin-left:auto;font-size:1.5rem;color:rgba(255,255,255,.6);flex-shrink:0}
+ 
+/* ── ACT 3: INLINE GAP FILL ── */
+.wordbank{display:flex;flex-wrap:wrap;gap:7px;padding:14px;background:var(--navy-pale);border-radius:12px;margin-bottom:20px}
+.bchip{padding:7px 13px;background:#fff;border:2px solid var(--navy);border-radius:50px;font-family:'Nunito',sans-serif;font-weight:700;font-size:.82rem;cursor:pointer;transition:all .2s;color:var(--navy)}
+.bchip:hover:not(.used){background:var(--navy);color:#fff}
+.bchip.bsel{background:var(--gold);border-color:var(--gold);color:#fff}
+.bchip.used{opacity:.3;cursor:not-allowed}
+ 
+.script-para{font-size:.94rem;line-height:2;color:var(--text);margin-bottom:16px;padding:14px 18px;background:#fff;border-radius:10px;border:1px solid var(--navy-pale)}
+.igap{
+  display:inline-flex;align-items:center;min-width:110px;
+  border-bottom:3px solid var(--navy);padding:2px 8px;margin:0 3px;
+  font-weight:800;color:var(--navy);cursor:pointer;border-radius:4px;
+  transition:all .2s;min-height:26px;font-size:.87rem;vertical-align:middle;
+}
+.igap:hover{background:var(--navy-pale)}
+.igap.gfilled{background:var(--navy-pale)}
+.igap.gcorrect{background:var(--green-pale);border-color:var(--green);color:var(--green)}
+.igap.gwrong{background:var(--coral-pale);border-color:var(--coral);color:var(--coral)}
+.gap-num{font-size:.68rem;color:var(--muted);margin-right:3px;font-style:normal;font-weight:700}
+ 
+/* ── READ CARDS ── */
+.read-prog-label{display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:.84rem;margin-bottom:7px}
+.read-prog-label .rpl-l{color:var(--navy)}
+.read-prog-label .rpl-r{color:var(--muted)}
+.read-prog-track{height:10px;background:var(--navy-pale);border-radius:10px;overflow:hidden;margin-bottom:20px}
+.read-prog-fill{height:100%;background:linear-gradient(90deg,var(--navy),var(--navy-mid));border-radius:10px;transition:width .5s ease;width:0%}
+ 
+.rcard{background:#fff;border-radius:var(--radius);margin-bottom:12px;box-shadow:0 2px 14px rgba(30,58,95,.08);border:2px solid #E8EEF8;overflow:hidden;transition:border-color .3s,box-shadow .3s}
+.rcard.rc-open{border-color:var(--navy-pale);box-shadow:0 4px 22px rgba(30,58,95,.13)}
+.rcard.rc-done{border-color:var(--green)!important;box-shadow:0 2px 14px rgba(26,122,94,.14)!important}
+.rcard-accent{height:5px;width:100%}
+.rcard-head{display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;user-select:none;transition:background .2s}
+.rcard-head:hover{background:#F8FAFD}
+.rcard-icon{width:38px;height:38px;min-width:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.rcard-title{font-weight:900;font-size:.94rem;color:var(--text)}
+.rcard-hint{font-size:.72rem;color:var(--muted);margin-top:2px;font-weight:600}
+.rcard-right{display:flex;align-items:center;gap:10px;margin-left:auto;flex-shrink:0}
+.rdone-badge{font-size:.7rem;font-weight:800;padding:4px 10px;border-radius:50px;background:var(--green-pale);color:var(--green);display:none}
+.rc-done .rdone-badge{display:inline-block}
+.rcard-arrow{font-size:.88rem;color:var(--muted);transition:transform .3s}
+.rc-open .rcard-arrow{transform:rotate(180deg)}
+.rcard-body{max-height:0;overflow:hidden;transition:max-height .45s ease;border-top:0 solid var(--navy-pale)}
+.rc-open .rcard-body{max-height:1000px;border-top-width:1px}
+.rcard-body-inner{padding:18px 22px 6px;font-size:.93rem;line-height:1.82;color:var(--text)}
+.rcard-body-inner p{padding-bottom:12px}
+ 
+.rq{display:flex;gap:13px;align-items:flex-start;background:linear-gradient(135deg,#FFFEF5,#FDF8DC);border-radius:12px;padding:16px;margin:10px 0 10px;border:1px solid #EDD97A}
+.rq-mark{font-family:'Libre Baskerville',serif;font-size:2.6rem;color:var(--gold);line-height:1;flex-shrink:0;margin-top:-4px;opacity:.55}
+.rq-text{font-family:'Libre Baskerville',serif;font-style:italic;font-size:.9rem;line-height:1.72;color:#4A3800}
+.rq-note{display:block;font-family:'Nunito',sans-serif;font-style:normal;font-size:.74rem;font-weight:800;color:var(--gold);margin-top:7px;text-transform:uppercase;letter-spacing:.5px}
+ 
+.rcard-footer{padding:12px 22px 16px;display:flex;align-items:center;justify-content:space-between}
+.mrb{padding:8px 18px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:800;font-size:.8rem;cursor:pointer;transition:all .2s;border:2px solid var(--navy);color:var(--navy);background:#fff}
+.mrb:hover:not(.is-read){background:var(--navy);color:#fff}
+.mrb.is-read{background:var(--green);border-color:var(--green);color:#fff;cursor:default}
+.rcard-wc{font-size:.72rem;color:var(--muted);font-weight:600}
+ 
+/* ── ACT 5: COMPREHENSION ── */
+.comp-card{background:#fff;border-radius:12px;padding:18px;border:2px solid var(--navy-pale);margin-bottom:11px}
+.comp-q{font-weight:800;color:var(--navy);font-size:.93rem;margin-bottom:10px;display:flex;gap:10px;align-items:flex-start}
+.comp-num{width:26px;height:26px;min-width:26px;border-radius:50%;background:var(--gold);color:#fff;font-size:.75rem;font-weight:900;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.comp-ta{width:100%;min-height:70px;padding:10px 14px;border:2px solid var(--navy-pale);border-radius:9px;font-family:'Nunito',sans-serif;font-size:.88rem;resize:vertical;transition:border-color .2s}
+.comp-ta:focus{outline:none;border-color:var(--navy)}
+.comp-foot{display:flex;justify-content:space-between;align-items:center;margin-top:7px}
+.comp-cc{font-size:.72rem;color:var(--muted)}
+.comp-done-btn{padding:7px 14px;border:2px solid var(--green);border-radius:50px;background:#fff;color:var(--green);font-family:'Nunito',sans-serif;font-weight:700;font-size:.78rem;cursor:pointer;transition:all .2s}
+.comp-done-btn:hover{background:var(--green);color:#fff}
+.comp-done-btn.is-done{background:var(--green);color:#fff}
+ 
+/* ── VOCAB ── */
+.v-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.v-col-lbl{font-weight:900;font-size:.76rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:9px}
+.vchip{display:block;width:100%;padding:10px 13px;border:2px solid var(--navy-pale);border-radius:9px;background:#fff;font-family:'Nunito',sans-serif;font-weight:700;font-size:.85rem;cursor:pointer;text-align:left;transition:all .2s;margin-bottom:7px;color:var(--text)}
+.vchip:hover:not(.matched):not(.vsel){border-color:var(--navy);background:var(--navy-pale)}
+.vchip.vsel{border-color:var(--gold);background:var(--gold-pale);color:#5a3a00}
+.vchip.matched{border-color:var(--green);background:var(--green-pale);color:var(--green);cursor:default}
+ 
+/* ── JOB PROFILE ── */
+.jp-card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}
+.jp-header{background:linear-gradient(135deg,var(--navy),var(--navy-mid));color:#fff;padding:22px 24px}
+.jp-company{font-size:.78rem;font-weight:700;opacity:.75;text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px}
+.jp-role{font-size:1.3rem;font-weight:900}
+.jp-body{padding:22px 24px}
+.jp-section{margin-bottom:18px}
+.jp-section-title{font-size:.8rem;font-weight:900;text-transform:uppercase;letter-spacing:.8px;color:var(--navy);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.jp-section-title::after{content:'';flex:1;height:2px;background:var(--navy-pale);border-radius:2px}
+.jp-item{display:flex;align-items:flex-start;gap:9px;padding:8px 0;border-bottom:1px solid var(--navy-pale);font-size:.92rem}
+.jp-item:last-child{border-bottom:none}
+.jp-dot{width:8px;height:8px;min-width:8px;border-radius:50%;background:var(--gold);margin-top:6px}
+ 
+/* ── TRUE/FALSE ── */
+.tf-meta{display:flex;justify-content:space-between;align-items:center;font-size:.82rem;font-weight:700;color:var(--muted);margin-bottom:8px}
+.tf-card{background:#fff;border-radius:12px;padding:18px;border:2px solid #E8EEF8;margin-bottom:10px;transition:border-color .25s}
+.tf-card.tf-correct{border-color:var(--green);background:var(--green-pale)}
+.tf-card.tf-wrong{border-color:var(--coral);background:var(--coral-pale)}
+.tf-stmt{font-size:.93rem;font-weight:700;color:var(--text);margin-bottom:12px;line-height:1.5;display:flex;gap:10px;align-items:flex-start}
+.tf-n{width:26px;height:26px;min-width:26px;border-radius:50%;background:var(--gold);color:#fff;font-size:.75rem;font-weight:900;display:flex;align-items:center;justify-content:center}
+.tf-btns{display:flex;gap:8px}
+.tf-btn{padding:8px 22px;border-radius:50px;border:2px solid;font-family:'Nunito',sans-serif;font-weight:800;font-size:.84rem;cursor:pointer;transition:all .2s}
+.tf-true{border-color:var(--green);color:var(--green);background:#fff}
+.tf-true:hover:not(:disabled){background:var(--green);color:#fff}
+.tf-false{border-color:var(--coral);color:var(--coral);background:#fff}
+.tf-false:hover:not(:disabled){background:var(--coral);color:#fff}
+.tf-btn:disabled{cursor:default}
+.tf-result{font-size:.82rem;font-weight:800;margin-top:8px;display:none}
+.tf-result.show{display:block}
+ 
+/* ── DO's & DON'Ts ── */
+.dos-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.dos-col{border-radius:12px;overflow:hidden}
+.dos-head{padding:13px 18px;font-weight:900;font-size:.95rem;display:flex;align-items:center;gap:8px}
+.do-head{background:var(--green);color:#fff}
+.dont-head{background:var(--coral);color:#fff}
+.dos-body{background:#fff;border:2px solid;border-top:none;border-radius:0 0 12px 12px;padding:14px}
+.do-body{border-color:var(--green)}
+.dont-body{border-color:var(--coral)}
+.dos-item{display:flex;align-items:center;flex-wrap:wrap;gap:4px;padding:9px 0;border-bottom:1px solid #F0F0F0;font-size:.88rem;font-weight:600}
+.dos-item:last-child{border-bottom:none}
+.dgap{
+  display:inline-flex;align-items:center;min-width:100px;
+  border-bottom:2px solid var(--navy);padding:2px 7px;margin:0 3px;
+  font-weight:800;color:var(--navy);cursor:pointer;border-radius:4px;
+  transition:all .2s;min-height:24px;font-size:.84rem;
+}
+.dgap:hover{background:var(--navy-pale)}
+.dgap.gfilled{background:var(--navy-pale)}
+.dgap.gcorrect{background:var(--green-pale);border-color:var(--green);color:var(--green)}
+.dgap.gwrong{background:var(--coral-pale);border-color:var(--coral);color:var(--coral)}
+ 
+/* ── DISCUSS ── */
+.disc-card{background:#fff;border-radius:var(--radius);padding:18px;border:2px solid var(--navy-pale);margin-bottom:11px;transition:border-color .2s}
+.disc-card.disc-done{border-color:var(--green)}
+.dq{font-weight:800;color:var(--navy);font-size:.93rem;margin-bottom:10px;display:flex;gap:9px;align-items:flex-start}
+.dq-num{width:26px;height:26px;min-width:26px;border-radius:50%;background:var(--gold);color:#fff;font-size:.78rem;font-weight:900;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.dtxt{width:100%;min-height:82px;padding:10px 14px;border:2px solid var(--navy-pale);border-radius:9px;font-family:'Nunito',sans-serif;font-size:.88rem;resize:vertical;transition:border-color .2s}
+.dtxt:focus{outline:none;border-color:var(--navy)}
+.disc-foot{display:flex;align-items:center;justify-content:space-between;margin-top:7px}
+.cc{font-size:.72rem;color:var(--muted)}
+.done-btn{padding:7px 15px;border:2px solid var(--green);border-radius:50px;background:#fff;color:var(--green);font-family:'Nunito',sans-serif;font-weight:700;font-size:.78rem;cursor:pointer;transition:all .2s}
+.done-btn:hover{background:var(--green);color:#fff}
+.done-btn.is-done{background:var(--green);color:#fff}
+ 
+/* ── MCQ QUIZ (Acts 5 & 7) ── */
+.q-meta{display:flex;justify-content:space-between;align-items:center;font-size:.84rem;font-weight:700;color:var(--muted);margin-bottom:8px}
+.q-card{background:#fff;border-radius:var(--radius);padding:26px 24px;box-shadow:var(--shadow)}
+.q-text{font-size:1rem;font-weight:800;color:var(--navy);margin-bottom:20px;line-height:1.55}
+.opt{
+  display:block;width:100%;text-align:left;
+  padding:13px 18px;margin-bottom:10px;
+  border:2px solid var(--navy-pale);border-radius:12px;
+  background:#fff;font-family:'Nunito',sans-serif;
+  font-size:.93rem;font-weight:600;cursor:pointer;
+  transition:all .2s;color:var(--text);line-height:1.45;
+}
+.opt:hover:not(:disabled){border-color:var(--navy);background:var(--navy-pale)}
+.opt.ok{border-color:var(--green);background:var(--green-pale);color:var(--green);font-weight:800}
+.opt.err{border-color:var(--coral);background:var(--coral-pale);color:var(--coral);font-weight:800}
+.opt.reveal{border-color:var(--green);background:var(--green-pale);color:var(--green);font-weight:800}
+.opt:disabled{cursor:default}
+.q-nav{display:flex;gap:10px;margin-top:18px;align-items:center}
+ 
+/* RESULT BOX */
+.result-box{background:#fff;border-radius:var(--radius);padding:28px;text-align:center;box-shadow:var(--shadow)}
+ 
+/* CERTIFICATE */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:1000}
+.overlay.open{display:flex;animation:fadeUp .3s ease}
+.cert{background:#fff;border-radius:24px;padding:38px 30px;max-width:480px;width:92%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.28)}
+.cert-icon{font-size:3.5rem;display:block;margin-bottom:10px}
+.cert-h{font-size:1.65rem;font-weight:900;color:var(--navy);margin-bottom:6px}
+.cert-s{font-size:.88rem;color:var(--muted);margin-bottom:16px}
+.cert-pts{font-size:2.7rem;font-weight:900;color:var(--gold);margin-bottom:12px}
+.cert-msg{font-size:.9rem;line-height:1.65;color:var(--text);margin-bottom:22px}
+ 
+/* CONFETTI */
+.cp{position:fixed;animation:cffall linear forwards;z-index:9999}
+@keyframes cffall{0%{transform:translateY(-20px) rotate(0);opacity:1}100%{transform:translateY(105vh) rotate(720deg);opacity:0}}
+ 
+/* FOOTER */
+.app-footer{text-align:center;padding:18px;font-size:.73rem;color:var(--muted);border-top:1px solid var(--navy-pale);background:#fff}
+ 
+/* SAVE / LOAD BAR */
+.save-bar{
+  position:fixed;bottom:0;left:0;right:0;z-index:200;
+  background:rgba(20,36,68,0.96);backdrop-filter:blur(10px);
+  padding:9px 20px;display:flex;align-items:center;
+  justify-content:center;gap:10px;
+}
+.save-btn{
+  padding:7px 18px;border-radius:50px;
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:.8rem;
+  cursor:pointer;border:2px solid rgba(255,255,255,.35);
+  background:rgba(255,255,255,.12);color:#fff;transition:all .2s;
+}
+.save-btn:hover{background:rgba(255,255,255,.28);border-color:rgba(255,255,255,.6)}
+.save-msg{
+  font-family:'Nunito',sans-serif;font-size:.8rem;font-weight:700;
+  color:rgba(255,255,255,.85);padding:0 10px;display:none;
+}
+.save-msg.show{display:inline}
+ 
+/* PRINT STYLES */
+@media print {
+  body > *:not(.cert-print-wrap) { display:none !important }
+  .cert-print-wrap {
+    display:block !important;position:fixed;inset:0;
+    background:#fff;padding:40px;
+  }
+  .cert-print-inner{
+    max-width:580px;margin:0 auto;text-align:center;
+    border:3px solid #1E3A5F;border-radius:20px;padding:48px 40px;
+    font-family:'Nunito',sans-serif;
+  }
+  .cert-print-logo{font-size:3.5rem;margin-bottom:12px}
+  .cert-print-course{font-size:.85rem;color:#666;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+  .cert-print-title{font-size:2rem;font-weight:900;color:#1E3A5F;margin-bottom:6px}
+  .cert-print-sub{font-size:.9rem;color:#888;margin-bottom:24px}
+  .cert-print-score{font-size:3rem;font-weight:900;color:#C9A227;margin-bottom:16px}
+  .cert-print-msg{font-size:.95rem;color:#333;line-height:1.65;margin-bottom:30px}
+  .cert-print-footer{font-size:.75rem;color:#aaa;border-top:1px solid #eee;padding-top:16px;margin-top:10px}
+}
+ 
+/* UTILS */
+.tc{text-align:center}.mt16{margin-top:16px}.mt20{margin-top:20px}
+ 
+/* RESPONSIVE */
+@media(max-width:600px){
+  .v-grid{grid-template-columns:1fr}
+  .dos-grid{grid-template-columns:1fr}
+  .app-header{padding:14px 16px}
+  .hdr-title{font-size:1.1rem}
+  .main{padding:16px 13px 60px}
+}
+</style>
+</head>
+<body>
+ 
+<header class="app-header">
+  <div>
+    <div class="hdr-course">GED 100 · Workplace Essentials</div>
+    <div class="hdr-title">💼 Job Interview Skills in English</div>
+  </div>
+  <div class="score-pill">
+    ⭐ <strong id="scoreDisplay">0</strong> <span>/ 400 pts</span>
+  </div>
+</header>
+ 
+<nav class="nav-strip">
+  <button class="nav-btn active" onclick="goTo(1)" id="nb1">🖼️ Predict <span class="ck">✔</span></button>
+  <button class="nav-btn" onclick="goTo(2)" id="nb2">🎬 Video <span class="ck">✔</span></button>
+  <button class="nav-btn" onclick="goTo(3)" id="nb3">✏️ Gap Fill <span class="ck">✔</span></button>
+  <button class="nav-btn" onclick="goTo(4)" id="nb4">📖 Read <span class="ck">✔</span></button>
+  <button class="nav-btn" onclick="goTo(5)" id="nb5">❓ Questions <span class="ck">✔</span></button>
+  <button class="nav-btn" onclick="goTo(6)" id="nb6">🔤 Vocabulary <span class="ck">✔</span></button>
+  <button class="nav-btn" onclick="goTo(7)" id="nb7">👔 Job Profile <span class="ck">✔</span></button>
+  <button class="nav-btn" onclick="goTo(8)" id="nb8">🎬 Interviews <span class="ck">✔</span></button>
+  <button class="nav-btn" onclick="goTo(9)" id="nb9">✅ Daniel T/F <span class="ck">✔</span></button>
+  <button class="nav-btn" onclick="goTo(10)" id="nb10">✅ Sarah T/F <span class="ck">✔</span></button>
+  <button class="nav-btn" onclick="goTo(11)" id="nb11">📝 Do's &amp; Don'ts <span class="ck">✔</span></button>
+  <button class="nav-btn" onclick="goTo(12)" id="nb12">💭 Discuss <span class="ck">✔</span></button>
+</nav>
+ 
+<main class="main">
+ 
+<!-- ═══ ACT 1: PREDICT ═══ -->
+<section class="section active" id="s1">
+  <div class="act-hdr">
+    <div class="act-num">1</div>
+    <div><div class="act-title">Look at the Photo</div>
+    <div class="act-sub">What do you think the text is about? Write 5 sentences.</div></div>
+  </div>
+  <div class="photo-wrap">
+    <svg viewBox="0 0 800 340" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="wallG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#E8ECF5"/><stop offset="1" stop-color="#CDD4E8"/>
+        </linearGradient>
+        <linearGradient id="deskTop" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#9E7246"/><stop offset="1" stop-color="#7A5530"/>
+        </linearGradient>
+        <linearGradient id="deskFront" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#7A5530"/><stop offset="1" stop-color="#4A3018"/>
+        </linearGradient>
+        <linearGradient id="floorG" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#C8B48A"/><stop offset="1" stop-color="#B8A070"/>
+        </linearGradient>
+        <linearGradient id="winG" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#D8EAFA"/><stop offset="1" stop-color="#B8D4F0"/>
+        </linearGradient>
+      </defs>
+ 
+      <!-- WALL -->
+      <rect width="800" height="340" fill="url(#wallG)"/>
+      <!-- Floor -->
+      <rect x="0" y="258" width="800" height="82" fill="url(#floorG)"/>
+      <!-- Baseboard -->
+      <rect x="0" y="255" width="800" height="6" fill="#B0985C" opacity=".5"/>
+ 
+      <!-- WINDOW (left background) -->
+      <rect x="42" y="15" width="148" height="210" rx="5" fill="url(#winG)"/>
+      <rect x="42" y="15" width="148" height="210" rx="5" fill="none" stroke="#D8E8F5" stroke-width="6"/>
+      <line x1="116" y1="15" x2="116" y2="225" stroke="#B8D0E8" stroke-width="4"/>
+      <line x1="42" y1="120" x2="190" y2="120" stroke="#B8D0E8" stroke-width="4"/>
+      <rect x="43" y="16" width="73" height="104" fill="rgba(255,255,255,.18)"/>
+      <!-- blind slats -->
+      <line x1="43" y1="38" x2="189" y2="38" stroke="#A8C8E0" stroke-width="1.5" opacity=".5"/>
+      <line x1="43" y1="58" x2="189" y2="58" stroke="#A8C8E0" stroke-width="1.5" opacity=".5"/>
+      <line x1="43" y1="78" x2="189" y2="78" stroke="#A8C8E0" stroke-width="1.5" opacity=".5"/>
+      <line x1="43" y1="98" x2="189" y2="98" stroke="#A8C8E0" stroke-width="1.5" opacity=".5"/>
+      <line x1="43" y1="140" x2="189" y2="140" stroke="#A8C8E0" stroke-width="1.5" opacity=".5"/>
+      <line x1="43" y1="160" x2="189" y2="160" stroke="#A8C8E0" stroke-width="1.5" opacity=".5"/>
+      <line x1="43" y1="180" x2="189" y2="180" stroke="#A8C8E0" stroke-width="1.5" opacity=".5"/>
+      <line x1="43" y1="200" x2="189" y2="200" stroke="#A8C8E0" stroke-width="1.5" opacity=".5"/>
+ 
+      <!-- COMPANY NAME PLATE on wall -->
+      <rect x="330" y="18" width="140" height="46" rx="7" fill="#1E3A5F" opacity=".9"/>
+      <rect x="332" y="20" width="136" height="42" rx="5" fill="none" stroke="#C9A227" stroke-width="1.5" opacity=".6"/>
+      <text x="400" y="38" text-anchor="middle" font-family="Nunito,sans-serif" font-size="11" font-weight="900" fill="#C9A227" letter-spacing="2">WEBWARE</text>
+      <text x="400" y="54" text-anchor="middle" font-family="Nunito,sans-serif" font-size="8.5" font-weight="700" fill="rgba(255,255,255,.75)" letter-spacing="1.5">INTERVIEW ROOM</text>
+ 
+      <!-- PLANT right -->
+      <rect x="688" y="172" width="28" height="55" rx="5" fill="#7A5530"/>
+      <ellipse cx="702" cy="172" rx="26" ry="14" fill="#6B3E1A"/>
+      <ellipse cx="702" cy="155" rx="22" ry="30" fill="#3A7D28"/>
+      <ellipse cx="685" cy="148" rx="16" ry="24" fill="#4A9232"/>
+      <ellipse cx="718" cy="146" rx="17" ry="26" fill="#3A8024"/>
+      <ellipse cx="702" cy="142" rx="14" ry="22" fill="#5AAA38"/>
+ 
+      <!-- ═══ BIG DESK ═══ -->
+      <!-- surface -->
+      <rect x="72" y="200" width="656" height="26" rx="5" fill="url(#deskTop)"/>
+      <rect x="72" y="200" width="656" height="5" rx="3" fill="rgba(255,255,255,.18)"/>
+      <!-- front panel -->
+      <rect x="72" y="226" width="656" height="55" fill="url(#deskFront)"/>
+      <rect x="72" y="279" width="656" height="4" rx="2" fill="#2A1608"/>
+      <!-- desk legs -->
+      <rect x="92" y="282" width="16" height="55" rx="5" fill="#5A3218"/>
+      <rect x="692" y="282" width="16" height="55" rx="5" fill="#5A3218"/>
+ 
+      <!-- ═══ DESK ITEMS ═══ -->
+      <!-- CV stack (interviewer's side, left) -->
+      <rect x="162" y="184" width="118" height="20" rx="3" fill="#F0F4FF" transform="rotate(-3,221,194)"/>
+      <rect x="160" y="188" width="118" height="18" rx="3" fill="#fff" transform="rotate(-1,219,197)"/>
+      <text x="185" y="200" font-family="Nunito,sans-serif" font-size="7.5" font-weight="900" fill="#1E3A5F" transform="rotate(-1,219,197)" letter-spacing=".5">CURRICULUM VITAE</text>
+      <rect x="164" y="204" width="80" height="2" rx="1" fill="#CBD5E1" transform="rotate(-1,219,197)"/>
+      <rect x="164" y="208" width="100" height="2" rx="1" fill="#E2E8F0" transform="rotate(-1,219,197)"/>
+      <rect x="164" y="212" width="65" height="2" rx="1" fill="#E2E8F0" transform="rotate(-1,219,197)"/>
+ 
+      <!-- Pen on CV -->
+      <rect x="285" y="189" width="52" height="5" rx="2.5" fill="#1E3A5F" transform="rotate(-28,311,192)"/>
+      <rect x="283" y="187" width="9" height="9" rx="2" fill="#C9A227" transform="rotate(-28,311,192)"/>
+ 
+      <!-- Laptop (interviewer's side) -->
+      <rect x="148" y="160" width="128" height="42" rx="6" fill="#94A3B8"/>
+      <rect x="153" y="164" width="118" height="32" rx="4" fill="#1E3A5F"/>
+      <rect x="160" y="170" width="55" height="3.5" rx="1.5" fill="#2C5282" opacity=".8"/>
+      <rect x="160" y="177" width="78" height="3" rx="1.5" fill="#2C5282" opacity=".6"/>
+      <rect x="160" y="183" width="45" height="3" rx="1.5" fill="#2C5282" opacity=".4"/>
+      <rect x="136" y="200" width="152" height="6" rx="3" fill="#7A8A9A"/>
+ 
+      <!-- Water glass (center) -->
+      <rect x="384" y="178" width="26" height="26" rx="6" fill="rgba(180,218,248,.8)" stroke="#90C0E0" stroke-width="1.5"/>
+      <rect x="385" y="179" width="24" height="7" rx="3" fill="rgba(255,255,255,.45)"/>
+ 
+      <!-- Notepad (candidate side) -->
+      <rect x="518" y="180" width="96" height="22" rx="4" fill="#FFFDF5" stroke="#D4C060" stroke-width="1.5" transform="rotate(4,566,191)"/>
+      <rect x="524" y="184" width="55" height="2.5" rx="1" fill="#D4C080" transform="rotate(4,566,191)"/>
+      <rect x="524" y="190" width="74" height="2.5" rx="1" fill="#D4C080" transform="rotate(4,566,191)"/>
+      <rect x="524" y="196" width="44" height="2.5" rx="1" fill="#D4C080" transform="rotate(4,566,191)"/>
+ 
+      <!-- ═══ INTERVIEWER — LEFT, SEATED, FACING RIGHT ═══ -->
+      <!-- Chair back -->
+      <rect x="104" y="110" width="12" height="108" rx="6" fill="#2D3748"/>
+      <rect x="196" y="110" width="12" height="108" rx="6" fill="#2D3748"/>
+      <rect x="104" y="110" width="104" height="20" rx="9" fill="#3D4A5C"/>
+      <rect x="104" y="142" width="104" height="55" rx="6" fill="#3D4A5C"/>
+      <!-- Suit torso (dark navy) -->
+      <path d="M132 202 Q135 172 156 164 Q168 161 180 164 Q201 172 204 202 Z" fill="#1A2840"/>
+      <!-- Lapels -->
+      <path d="M156 164 L150 183 L143 202" fill="#111E30"/>
+      <path d="M180 164 L186 183 L193 202" fill="#111E30"/>
+      <!-- Shirt + tie -->
+      <rect x="165" y="164" width="8" height="26" rx="2" fill="#fff"/>
+      <polygon points="169,166 172,181 169,202 166,181" fill="#C9A227"/>
+      <!-- Head (warm skin, looking right toward candidate) -->
+      <ellipse cx="168" cy="133" rx="32" ry="35" fill="#F5C89A"/>
+      <!-- Hair (short brown) -->
+      <ellipse cx="168" cy="105" rx="32" ry="20" fill="#3D2510"/>
+      <rect x="136" y="103" width="64" height="18" fill="#3D2510"/>
+      <!-- Ear -->
+      <ellipse cx="200" cy="133" rx="7" ry="10" fill="#E8B080"/>
+      <!-- Eyebrow right (toward camera) -->
+      <path d="M174 120 Q182 117 190 119" stroke="#2A1508" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M148 121 Q156 118 164 120" stroke="#2A1508" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <!-- Eyes (looking right) -->
+      <ellipse cx="156" cy="127" rx="6" ry="5" fill="#fff"/>
+      <ellipse cx="158" cy="127" rx="3.5" ry="3.5" fill="#2A1508"/>
+      <ellipse cx="180" cy="126" rx="6" ry="5" fill="#fff"/>
+      <ellipse cx="182" cy="126" rx="3.5" ry="3.5" fill="#2A1508"/>
+      <!-- Nose -->
+      <path d="M170 132 Q166 140 162 143 Q170 146 178 143 Q174 140 170 132" fill="#D8A070"/>
+      <!-- Mouth (warm professional smile) -->
+      <path d="M158 150 Q168 158 178 150" stroke="#4A2408" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <!-- Arms/hands on desk -->
+      <path d="M132 198 Q110 200 84 203" stroke="#1A2840" stroke-width="20" fill="none" stroke-linecap="round"/>
+      <path d="M204 198 Q228 200 258 203" stroke="#1A2840" stroke-width="20" fill="none" stroke-linecap="round"/>
+      <ellipse cx="82" cy="203" rx="14" ry="10" fill="#F5C89A"/>
+      <ellipse cx="260" cy="203" rx="14" ry="10" fill="#F5C89A"/>
+ 
+      <!-- INTERVIEWER LABEL -->
+      <rect x="90" y="70" width="148" height="32" rx="9" fill="rgba(26,40,64,0.92)"/>
+      <text x="164" y="91" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="#fff">👩‍💼 Interviewer</text>
+      <polygon points="148,102 164,118 180,102" fill="rgba(26,40,64,0.92)"/>
+ 
+      <!-- ═══ CANDIDATE — RIGHT, SEATED, FACING LEFT ═══ -->
+      <!-- Chair back -->
+      <rect x="596" y="110" width="12" height="108" rx="6" fill="#2D3748"/>
+      <rect x="688" y="110" width="12" height="108" rx="6" fill="#2D3748"/>
+      <rect x="596" y="110" width="104" height="20" rx="9" fill="#3D4A5C"/>
+      <rect x="596" y="142" width="104" height="55" rx="6" fill="#3D4A5C"/>
+      <!-- Suit torso (navy blue) -->
+      <path d="M596 202 Q599 172 620 164 Q634 161 646 164 Q667 172 670 202 Z" fill="#2A4270"/>
+      <!-- Lapels -->
+      <path d="M620 164 L614 183 L607 202" fill="#1E3258"/>
+      <path d="M646 164 L652 183 L659 202" fill="#1E3258"/>
+      <!-- Shirt + tie -->
+      <rect x="630" y="164" width="8" height="26" rx="2" fill="#fff"/>
+      <polygon points="634,166 637,181 634,202 631,181" fill="#8B1A1A"/>
+      <!-- Head (medium skin, looking left) -->
+      <ellipse cx="634" cy="133" rx="32" ry="35" fill="#D4956A"/>
+      <!-- Hair (dark) -->
+      <ellipse cx="634" cy="105" rx="32" ry="21" fill="#181828"/>
+      <rect x="602" y="103" width="64" height="18" fill="#181828"/>
+      <!-- Ear -->
+      <ellipse cx="602" cy="133" rx="7" ry="10" fill="#BE7F50"/>
+      <!-- Eyebrows -->
+      <path d="M609 120 Q617 117 624 119" stroke="#2A1508" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path x="633" y="120" d="M638 120 Q646 117 652 119" stroke="#2A1508" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <!-- Eyes (looking left toward interviewer) -->
+      <ellipse cx="616" cy="127" rx="6" ry="5" fill="#fff"/>
+      <ellipse cx="614" cy="127" rx="3.5" ry="3.5" fill="#2A1508"/>
+      <ellipse cx="641" cy="126" rx="6" ry="5" fill="#fff"/>
+      <ellipse cx="639" cy="126" rx="3.5" ry="3.5" fill="#2A1508"/>
+      <!-- Nose -->
+      <path d="M632 132 Q628 140 624 143 Q632 146 640 143 Q636 140 632 132" fill="#BA7848"/>
+      <!-- Mouth (attentive expression) -->
+      <path d="M621 150 Q634 156 646 150" stroke="#4A2408" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <!-- Arms/hands on desk (folded) -->
+      <path d="M596 198 Q566 200 538 203" stroke="#2A4270" stroke-width="20" fill="none" stroke-linecap="round"/>
+      <path d="M670 198 Q700 200 722 203" stroke="#2A4270" stroke-width="20" fill="none" stroke-linecap="round"/>
+      <ellipse cx="536" cy="203" rx="14" ry="10" fill="#D4956A"/>
+      <ellipse cx="724" cy="203" rx="14" ry="10" fill="#D4956A"/>
+ 
+      <!-- CANDIDATE LABEL -->
+      <rect x="560" y="70" width="138" height="32" rx="9" fill="rgba(42,66,112,0.92)"/>
+      <text x="629" y="91" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" font-weight="900" fill="#fff">👨‍💼 Candidate</text>
+      <polygon points="614,102 629,118 644,102" fill="rgba(42,66,112,0.92)"/>
+ 
+      <!-- CAPTION -->
+      <rect x="0" y="311" width="800" height="29" fill="rgba(20,38,75,0.9)"/>
+      <text x="400" y="330" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12.5" font-weight="700" fill="#fff">A job interview — the interviewer and candidate face each other across the desk</text>
+    </svg>
+  </div>
+  <div class="card">
+    <div class="info-box">💡 Use the guide questions below to help you write your sentences.</div>
+    <div id="sentBoxes"></div>
+    <div class="tc mt20">
+      <button class="btn btn-navy" onclick="submitPredict()">Submit Predictions ➜</button>
+    </div>
+    <div class="fb" id="fb1"></div>
+  </div>
+</section>
+ 
+<!-- ═══ ACT 2: VIDEO ═══ -->
+<section class="section" id="s2">
+  <div class="act-hdr">
+    <div class="act-num">2</div>
+    <div><div class="act-title">Watch the Video</div>
+    <div class="act-sub">Listen to Jared's tips for job interviews in English.</div></div>
+  </div>
+  <div class="info-box">🎬 Click the card below to open the video in a new tab. Watch carefully — you will need the information for the next activity!</div>
+ 
+  <a class="video-card" href="https://www.youtube.com/watch?v=HG68Ymazo18" target="_blank">
+    <div class="video-icon">▶️</div>
+    <div class="video-info">
+      <div class="video-title">Job Interview Tips in English</div>
+      <div class="video-sub">YouTube · Cambridge English · Opens in new tab</div>
+    </div>
+    <div class="video-arrow">↗</div>
+  </a>
+ 
+  <div class="card" style="margin-top:16px">
+    <p style="font-size:.92rem;line-height:1.75;color:var(--muted)">
+      <strong style="color:var(--navy)">While you watch</strong>, listen for answers to these questions:
+    </p>
+    <ul style="margin-top:12px;padding-left:20px;font-size:.92rem;line-height:2.1;color:var(--text)">
+      <li>What is the <strong>first</strong> tip Jared gives?</li>
+      <li>What does Jared say you should do to <strong>research</strong> the company?</li>
+      <li>Why does <strong>appearance</strong> matter in an interview?</li>
+      <li>What should you do at the <strong>end</strong> of the interview?</li>
+    </ul>
+  </div>
+  <div class="tc mt20">
+    <button class="btn btn-navy" onclick="finishVideo()">✅ I've Watched the Video</button>
+  </div>
+  <div class="fb" id="fb2"></div>
+</section>
+ 
+<!-- ═══ ACT 3: GAP FILL ═══ -->
+<section class="section" id="s3">
+  <div class="act-hdr">
+    <div class="act-num">3</div>
+    <div><div class="act-title">Listen &amp; Fill in the Gaps</div>
+    <div class="act-sub">Use the word bank to complete Jared's script. 15 gaps · 4 points each.</div></div>
+  </div>
+  <div class="info-box">👆 Click a <strong>word</strong> from the box → then click the correct <strong>gap</strong> in the text. Click a filled gap to clear it.</div>
+  <div class="wordbank" id="wBank3"></div>
+  <div id="jaredScript"></div>
+  <div class="tc mt20" style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+    <button class="btn btn-gold" onclick="checkGaps3()">Check Answers ✓</button>
+    <button class="btn btn-navy" id="reset3" onclick="resetGaps3()" style="display:none">Try Again 🔄</button>
+  </div>
+  <div class="fb" id="fb3"></div>
+  <div class="tc mt16" id="next3" style="display:none">
+    <button class="btn btn-navy" onclick="goTo(4)">Next Activity ➜</button>
+  </div>
+</section>
+ 
+<!-- ═══ ACT 4: READ ═══ -->
+<section class="section" id="s4">
+  <div class="act-hdr">
+    <div class="act-num">4</div>
+    <div><div class="act-title">Read &amp; Listen to the Text</div>
+    <div class="act-sub">Open each section, read carefully, then mark it done.</div></div>
+  </div>
+  <div class="info-box">📖 Click any section to open it. Mark it as read when you finish each one.</div>
+  <div class="read-prog-label">
+    <span class="rpl-l" id="readProgLbl">📖 0 of 6 sections read</span>
+    <span class="rpl-r" id="readProgPct">0%</span>
+  </div>
+  <div class="read-prog-track"><div class="read-prog-fill" id="readProgFill"></div></div>
+  <div id="readSections"></div>
+  <div class="tc mt20">
+    <button class="btn btn-navy" onclick="finishRead()">✅ Finished Reading</button>
+  </div>
+  <div class="fb" id="fb4"></div>
+</section>
+ 
+<!-- ═══ ACT 5: COMPREHENSION MCQ ═══ -->
+<section class="section" id="s5">
+  <div class="act-hdr">
+    <div class="act-num">5</div>
+    <div><div class="act-title">Answer the Questions</div>
+    <div class="act-sub">10 multiple choice questions · 5 points each</div></div>
+  </div>
+  <div class="q-meta">
+    <span id="cqProg">Question 1 of 10</span>
+    <span id="cqScore" style="color:var(--navy);font-weight:900">Score: 0</span>
+  </div>
+  <div class="prog-bar"><div class="prog-fill" id="cqBar" style="width:0%"></div></div>
+  <div class="q-card" id="cqCard"></div>
+  <div class="q-nav" id="cqNav">
+    <button class="btn btn-navy" id="cqNext" onclick="nextCQ()" style="display:none">Next ➜</button>
+  </div>
+  <div id="cqResult" style="display:none"></div>
+</section>
+ 
+<!-- ═══ ACT 6: VOCABULARY ═══ -->
+<section class="section" id="s6">
+  <div class="act-hdr">
+    <div class="act-num">6</div>
+    <div><div class="act-title">Match the Words</div>
+    <div class="act-sub">Click a word → click its definition. 15 pairs · 5 points each.</div></div>
+  </div>
+  <div class="info-box">👆 Select a <strong>word</strong> on the left, then click the correct <strong>definition</strong> on the right. Words are shuffled each time.</div>
+  <div class="v-grid">
+    <div><div class="v-col-lbl">📝 Words</div><div id="vWords"></div></div>
+    <div><div class="v-col-lbl">📖 Definitions</div><div id="vDefs"></div></div>
+  </div>
+  <div class="fb" id="fb6"></div>
+  <div class="tc mt16" id="v-next" style="display:none">
+    <button class="btn btn-navy" onclick="goTo(7)">Next Activity ➜</button>
+  </div>
+</section>
+ 
+<!-- ═══ ACT 7: JOB PROFILE ═══ -->
+<section class="section" id="s7">
+  <div class="act-hdr">
+    <div class="act-num">7</div>
+    <div><div class="act-title">The Job Profile</div>
+    <div class="act-sub">Read the job profile, then answer 5 specific questions about it.</div></div>
+  </div>
+  <div class="info-box">📋 Read the Webware job profile carefully. Use the information to answer the quiz below. 5 points each.</div>
+  <div class="jp-card">
+    <div class="jp-header">
+      <div class="jp-company">Webware · Sales Department</div>
+      <div class="jp-role">Sales Director — Job Profile</div>
+    </div>
+    <div class="jp-body">
+      <div class="jp-section">
+        <div class="jp-section-title">🎓 Qualifications</div>
+        <div class="jp-item"><div class="jp-dot"></div><span>A first degree</span></div>
+        <div class="jp-item"><div class="jp-dot"></div><span>A master's degree or MBA</span></div>
+      </div>
+      <div class="jp-section">
+        <div class="jp-section-title">💼 Experience</div>
+        <div class="jp-item"><div class="jp-dot"></div><span>At least <strong>5 years'</strong> relevant experience in an international company</span></div>
+        <div class="jp-item"><div class="jp-dot"></div><span>Experience with online sales <em>(desirable but not essential)</em></span></div>
+      </div>
+      <div class="jp-section">
+        <div class="jp-section-title">⭐ Skills</div>
+        <div class="jp-item"><div class="jp-dot"></div><span>A team player</span></div>
+        <div class="jp-item"><div class="jp-dot"></div><span>Strong communication skills</span></div>
+        <div class="jp-item"><div class="jp-dot"></div><span>Creativity and ideas</span></div>
+        <div class="jp-item"><div class="jp-dot"></div><span>Languages — English and another language (e.g. Mandarin or Spanish)</span></div>
+      </div>
+    </div>
+  </div>
+ 
+  <div style="margin-top:20px">
+    <p style="font-weight:900;color:var(--navy);font-size:1rem;margin-bottom:14px">📝 Now answer these questions about the job profile:</p>
+    <div class="q-meta" style="margin-bottom:8px">
+      <span id="jpProg">Question 1 of 5</span>
+      <span id="jpScore" style="color:var(--navy);font-weight:900">Score: 0</span>
+    </div>
+    <div class="prog-bar"><div class="prog-fill" id="jpBar" style="width:0%"></div></div>
+    <div class="q-card" id="jpCard"></div>
+    <div class="q-nav" id="jpNav">
+      <button class="btn btn-navy" id="jpNext" onclick="nextJP()" style="display:none">Next ➜</button>
+    </div>
+    <div id="jpResult" style="display:none"></div>
+  </div>
+</section>
+ 
+<!-- ═══ ACT 8: INTERVIEWS ═══ -->
+<section class="section" id="s8">
+  <div class="act-hdr">
+    <div class="act-num">8</div>
+    <div><div class="act-title">Watch the Interviews</div>
+    <div class="act-sub">Read the interview summaries, then watch if your teacher provides the link.</div></div>
+  </div>
+  <div class="info-box">📖 Read both interview summaries, then watch the videos to see good and bad interview techniques in action. Use this information for the True/False activities.</div>
+ 
+  <!-- DANIEL -->
+  <div style="margin-bottom:26px">
+    <p style="font-size:.95rem;font-weight:900;color:var(--navy);margin-bottom:10px">🧑‍💼 Candidate 1: Daniel — The Bad Interview</p>
+ 
+    <div class="info-box" style="background:var(--coral-pale);border-color:var(--coral);color:#6B1E0E;margin-bottom:14px">
+      📄 Read Daniel's interview script below. As you read, think about what he does wrong and why it makes a bad impression.
+    </div>
+ 
+    <div style="background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:12px">
+      <div style="background:linear-gradient(135deg,#C84B31,#E07050);padding:14px 20px;color:#fff">
+        <div style="font-weight:900;font-size:1rem">📋 Daniel's Interview Script</div>
+        <div style="font-size:.8rem;opacity:.85;margin-top:3px">Webware — Sales Director Interview</div>
+      </div>
+      <div style="padding:20px;font-size:.91rem;line-height:1.9">
+ 
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--navy);min-width:70px">Daniel:</span>
+          <span>Hi there.</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--muted);min-width:70px">Marcia:</span>
+          <span>Good morning, Daniel.</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px;background:var(--coral-pale);border-left:3px solid var(--coral);border-radius:0 8px 8px 0;padding:8px 10px">
+          <span style="font-weight:900;color:var(--navy);min-width:70px">Daniel:</span>
+          <span>Oh, Dan, please. <span style="font-size:.78rem;font-weight:800;color:var(--coral)">⚠️ Too informal — use your full name in a formal interview.</span></span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--muted);min-width:70px">Marcia:</span>
+          <span>I'm Marcia Baldwin, we spoke on the phone, and this is Philip Hart, our CEO.</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--muted);min-width:70px">Phillip:</span>
+          <span>Hello.</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--navy);min-width:70px">Daniel:</span>
+          <span>Nice to meet you both.</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--muted);min-width:70px">Phillip:</span>
+          <span>So, it says here on your CV that you're interested in rock climbing.</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--navy);min-width:70px">Daniel:</span>
+          <span>Yeah, I love it.</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--muted);min-width:70px">Phillip:</span>
+          <span>Great, so do I. When did you last go climbing?</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--navy);min-width:70px">Daniel:</span>
+          <span>Er, well, it was a while ago now.</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--muted);min-width:70px">Phillip:</span>
+          <span>Anywhere interesting?</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px;background:var(--coral-pale);border-left:3px solid var(--coral);border-radius:0 8px 8px 0;padding:8px 10px">
+          <span style="font-weight:900;color:var(--navy);min-width:70px">Daniel:</span>
+          <span>Yeah, I walked up the hill behind my house. It took me about 30 minutes. <span style="font-size:.78rem;font-weight:800;color:var(--coral)">⚠️ He exaggerated on his CV.</span></span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--muted);min-width:70px">Marcia:</span>
+          <span>Okay, Daniel, can you tell us a little bit about your current position?</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--navy);min-width:70px">Daniel:</span>
+          <span>Certainly. I'm part of the European sales team at Networld — we're the world's leading supplier of IT hardware.</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--muted);min-width:70px">Phillip:</span>
+          <span>Why do you want to move on?</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px;background:var(--coral-pale);border-left:3px solid var(--coral);border-radius:0 8px 8px 0;padding:8px 10px">
+          <span style="font-weight:900;color:var(--navy);min-width:70px">Daniel:</span>
+          <span>Well, they're too small for me. <span style="font-size:.78rem;font-weight:800;color:var(--coral)">⚠️ Never criticise your current employer.</span></span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--muted);min-width:70px">Phillip:</span>
+          <span>What first attracted you to Webware in particular?</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px;background:var(--coral-pale);border-left:3px solid var(--coral);border-radius:0 8px 8px 0;padding:8px 10px">
+          <span style="font-weight:900;color:var(--navy);min-width:70px">Daniel:</span>
+          <span>Well, I see Webware as kind of like a stepping stone. Start here, gain the necessary experience, and then move on to something bigger. <span style="font-size:.78rem;font-weight:800;color:var(--coral)">⚠️ Never say the job is just a stepping stone!</span></span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--muted);min-width:70px">Marcia:</span>
+          <span>Let's move on to managing people. Can you give an example of dealing with a difficult member of staff?</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px;background:var(--coral-pale);border-left:3px solid var(--coral);border-radius:0 8px 8px 0;padding:8px 10px">
+          <span style="font-weight:900;color:var(--navy);min-width:70px">Daniel:</span>
+          <span>A couple of years ago I was working with a guy — he wasn't pulling his weight, basically being lazy, so I told him to get out. <span style="font-size:.78rem;font-weight:800;color:var(--coral)">⚠️ No warning or review — very unprofessional.</span></span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--muted);min-width:70px">Marcia:</span>
+          <span>You didn't give him a performance review or a warning, or try to develop his motivation?</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px;background:var(--coral-pale);border-left:3px solid var(--coral);border-radius:0 8px 8px 0;padding:8px 10px">
+          <span style="font-weight:900;color:var(--navy);min-width:70px">Daniel:</span>
+          <span>No, none of that rubbish. If someone's not working hard enough, then they're out. That's the way I work. I'm a hard man. <span style="font-size:.78rem;font-weight:800;color:var(--coral)">⚠️ Arrogant and aggressive tone.</span></span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--muted);min-width:70px">Phillip:</span>
+          <span>How would you handle a rapidly changing market?</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px;background:var(--coral-pale);border-left:3px solid var(--coral);border-radius:0 8px 8px 0;padding:8px 10px">
+          <span style="font-weight:900;color:var(--navy);min-width:70px">Daniel:</span>
+          <span>Basically, not change anything at all — just continue on as normal regardless. <span style="font-size:.78rem;font-weight:800;color:var(--coral)">⚠️ No flexibility or strategic thinking.</span></span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--muted);min-width:70px">Marcia:</span>
+          <span>According to your CV, you are fluent in Mandarin.</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px;background:var(--coral-pale);border-left:3px solid var(--coral);border-radius:0 8px 8px 0;padding:8px 10px">
+          <span style="font-weight:900;color:var(--navy);min-width:70px">Daniel:</span>
+          <span>Well, I wouldn't say fluent exactly... I like Chinese food a lot, so I can read the menu. <span style="font-size:.78rem;font-weight:800;color:var(--coral)">⚠️ He lied on his CV.</span></span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--muted);min-width:70px">Marcia:</span>
+          <span>Can you tell us about a time you had to close a particularly challenging deal?</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px;background:var(--coral-pale);border-left:3px solid var(--coral);border-radius:0 8px 8px 0;padding:8px 10px">
+          <span style="font-weight:900;color:var(--navy);min-width:70px">Daniel:</span>
+          <span>I haven't had one. They're all easy for me. I close deals all the time. <span style="font-size:.78rem;font-weight:800;color:var(--coral)">⚠️ Overconfident — gives no real example.</span></span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:10px">
+          <span style="font-weight:900;color:var(--muted);min-width:70px">Marcia:</span>
+          <span>Do you have any questions for us?</span>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:4px;background:var(--coral-pale);border-left:3px solid var(--coral);border-radius:0 8px 8px 0;padding:8px 10px">
+          <span style="font-weight:900;color:var(--navy);min-width:70px">Daniel:</span>
+          <span>No. <span style="font-size:.78rem;font-weight:800;color:var(--coral)">⚠️ Always prepare questions to show genuine interest!</span></span>
+        </div>
+ 
+      </div>
+    </div>
+ 
+    <div class="rcard rc-open" style="border-color:var(--coral);border-width:2px">
+      <div class="rcard-accent" style="background:linear-gradient(90deg,#C84B31,#E07050)"></div>
+      <div style="padding:16px 20px;font-size:.92rem;line-height:1.85;color:var(--text)">
+        <p>Daniel arrives and introduces himself as <strong>"Dan"</strong>. When asked about rock climbing on his CV, he admits he only <strong>walked up the hill behind his house</strong> — not very impressive.</p>
+        <p style="margin-top:10px">He says he wants to leave Networld because it is <strong>"too small"</strong> for him. He sees Webware as a <strong>"stepping stone"</strong> to something bigger — not a long-term position.</p>
+        <p style="margin-top:10px">When asked about managing a difficult staff member, he says he simply <strong>fired the person immediately</strong>, with no warning or performance review. He describes himself as <strong>"a hard man."</strong></p>
+        <p style="margin-top:10px">On how to handle a rapidly changing market, Daniel says he would <strong>"not change anything at all."</strong></p>
+        <p style="margin-top:10px">His CV says he is fluent in Mandarin, but he admits: <strong>"I wouldn't say fluent exactly... I can read the menu."</strong></p>
+        <p style="margin-top:10px">He says all sales deals are <strong>easy for him</strong> and he has never faced a challenging one. At the end, when asked if he has questions, he says simply: <strong>"No."</strong></p>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- SARAH -->
+  <div>
+    <p style="font-size:.95rem;font-weight:900;color:var(--navy);margin-bottom:10px">👩‍💼 Candidate 2: Sarah — The Good Interview</p>
+ 
+    <a class="video-card" href="https://www.youtube.com/watch?v=HG68Ymazo18" target="_blank" style="background:linear-gradient(135deg,#1A5230,#2D7A4F);margin-bottom:12px">
+      <div class="video-icon">▶️</div>
+      <div class="video-info">
+        <div class="video-title">Watch: A Good Job Interview Example</div>
+        <div class="video-sub">YouTube · See the right techniques in practice · Opens in new tab</div>
+      </div>
+      <div class="video-arrow">↗</div>
+    </a>
+ 
+    <div class="rcard rc-open" style="border-color:var(--green);border-width:2px">
+      <div class="rcard-accent" style="background:linear-gradient(90deg,#1A7A5E,#2DAA80)"></div>
+      <div style="padding:16px 20px;font-size:.92rem;line-height:1.85;color:var(--text)">
+        <p>Sarah does <strong>voluntary work</strong> with children who have difficulties — she finds it rewarding and challenging.</p>
+        <p style="margin-top:10px">She is currently <strong>Assistant Sales Director</strong> (not Sales Director) for a chain of language schools. She believes the <strong>skills are the same</strong> despite the different product.</p>
+        <p style="margin-top:10px">She wants to move on because she has <strong>come as far as she can</strong> in her current role and wants <strong>more responsibility</strong>.</p>
+        <p style="margin-top:10px">She resolved a conflict between two staff members by <strong>sitting down with them</strong> and discussing their differences. Things improved after that.</p>
+        <p style="margin-top:10px">She speaks <strong>French and Spanish</strong> (she has lived in both countries). She won her <strong>biggest contract</strong> with a university in India — a complex deal that she still <strong>pulled off</strong>.</p>
+        <p style="margin-top:10px">At the end, she asks about the company's <strong>ethical policy and carbon footprint</strong>, and whether products are ethically sourced. The interviewers are impressed.</p>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="tc mt20">
+    <button class="btn btn-navy" onclick="markDoneSimple(8); goTo(9)">✅ Ready for True/False ➜</button>
+  </div>
+</section>
+ 
+<!-- ═══ ACT 9: DANIEL T/F ═══ -->
+<section class="section" id="s9">
+  <div class="act-hdr">
+    <div class="act-num">9</div>
+    <div><div class="act-title">Daniel — True or False?</div>
+    <div class="act-sub">Are these sentences about Daniel's interview TRUE or FALSE? 5 points each.</div></div>
+  </div>
+  <div class="tf-meta">
+    <span id="d-prog">0 / 10 answered</span>
+    <span id="d-score" style="color:var(--navy);font-weight:900">Score: 0</span>
+  </div>
+  <div class="prog-bar"><div class="prog-fill" id="d-bar" style="width:0%"></div></div>
+  <div id="danielTF"></div>
+  <div class="tc mt20" id="d-next" style="display:none">
+    <button class="btn btn-navy" onclick="goTo(10)">Next: Sarah's Interview ➜</button>
+  </div>
+</section>
+ 
+<!-- ═══ ACT 10: SARAH T/F ═══ -->
+<section class="section" id="s10">
+  <div class="act-hdr">
+    <div class="act-num">10</div>
+    <div><div class="act-title">Sarah — True or False?</div>
+    <div class="act-sub">Are these sentences about Sarah's interview TRUE or FALSE? 5 points each.</div></div>
+  </div>
+  <div class="tf-meta">
+    <span id="s-prog">0 / 10 answered</span>
+    <span id="s-score" style="color:var(--navy);font-weight:900">Score: 0</span>
+  </div>
+  <div class="prog-bar"><div class="prog-fill" id="s-bar" style="width:0%"></div></div>
+  <div id="sarahTF"></div>
+  <div class="tc mt20" id="s-next" style="display:none">
+    <button class="btn btn-navy" onclick="goTo(11)">Next Activity ➜</button>
+  </div>
+</section>
+ 
+<!-- ═══ ACT 11: DO's & DON'Ts ═══ -->
+<section class="section" id="s11">
+  <div class="act-hdr">
+    <div class="act-num">11</div>
+    <div><div class="act-title">Do's &amp; Don'ts</div>
+    <div class="act-sub">Complete the interview tips list. Click a word from the bank, then click a gap.</div></div>
+  </div>
+  <div class="info-box">💡 Fill in 5 DO tips and 5 DON'T tips. Click a gap to clear it and try again.</div>
+  <div class="wordbank" id="wBankDos"></div>
+  <div class="dos-grid" id="dosGrid"></div>
+  <div class="tc mt16" style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+    <button class="btn btn-gold" onclick="checkDos()">Check Answers ✓</button>
+    <button class="btn btn-navy" id="resetDos" onclick="resetDosGaps()" style="display:none">Try Again 🔄</button>
+  </div>
+  <div class="fb" id="fb11"></div>
+  <div class="tc mt16" id="dos-next" style="display:none">
+    <button class="btn btn-navy" onclick="goTo(12)">Next Activity ➜</button>
+  </div>
+</section>
+ 
+<!-- ═══ ACT 12: DISCUSS ═══ -->
+<section class="section" id="s12">
+  <div class="act-hdr">
+    <div class="act-num">12</div>
+    <div><div class="act-title">Discussion Questions</div>
+    <div class="act-sub">Write your ideas, then discuss with a partner. 5 points each!</div></div>
+  </div>
+  <div class="info-box">🗣️ Write your own ideas first, then share with a classmate. Click <strong>Done</strong> when finished discussing!</div>
+  <div id="discCards"></div>
+  <div class="tc mt20" id="certTrigger" style="display:none">
+    <button class="btn btn-gold" onclick="openCert()">🎓 Get My Certificate!</button>
+  </div>
+</section>
+ 
+</main>
+ 
+<footer class="app-footer">
+  Text &amp; activities created by Terry Prosser &nbsp;·&nbsp; App designed by Nazila Motahari &nbsp;·&nbsp; B1 Level · GED 100 Workplace Essentials
+</footer>
+ 
+<div class="overlay" id="certOverlay">
+  <div class="cert">
+    <span class="cert-icon" id="certIcon">🏆</span>
+    <div class="cert-h">Well Done!</div>
+    <div class="cert-s">Job Interview Skills · B1 Lab · Complete</div>
+    <div class="cert-pts" id="certPts">0 / 330</div>
+    <div class="cert-msg" id="certMsg"></div>
+    <button class="btn btn-navy" onclick="document.getElementById('certOverlay').classList.remove('open')">Close ✕</button>
+    <button class="btn btn-gold" onclick="printCert()" style="margin-left:10px">🖨️ Print Certificate</button>
+  </div>
+</div>
+ 
+<script>
+// ════════════════════════════════
+// DATA
+// ════════════════════════════════
+ 
+const sentHints = [
+  "Who are the two people in the photo?",
+  "What do you think they are talking about?",
+  "How do you think the candidate (the person being interviewed) might be feeling?",
+  "What topic do you think the text will be about?",
+  "What do you think is important when going to a job interview?"
+];
+ 
+// JARED GAP FILL
+// segments: string = text, number = gap index (0-14)
+const jaredScript = [
+  ["Hello, my name's Jared. Today we're going to look at tips for job interviews in English."],
+  ["First, ", 0, ". You only get a few minutes to impress the interview panel, so make sure that you practise the ", 1, " to common interview ", 2, ". Ask a friend to play the role of an interviewer. Answer the questions and get some ", 3, " from your friend. Try again until you're happy with your responses."],
+  ["Next, make sure that you ", 4, " the company you are applying to. If you know someone who already works there, maybe you could ask them about working for the company. If you don't know anyone, you could do some ", 5, " research to find out what kind of company they are. Also, research the latest developments in the relevant business area. This sort of information will really ", 6, " the interviewers and also show that you have ", 7, "."],
+  ["Our next tip is to ", 8, ". Appearances do matter in a job interview. It is important that you look ", 9, " and professional. Make sure your clothes are appropriate. First appearances are important. Make sure that you smile and make ", 10, " with the interviewers. Don't forget to ", 11, " and not too fast. Give yourself time to think about your responses."],
+  ["Lastly, don't forget to ", 12, " questions too. This shows that you are genuinely ", 13, " in the position and the company. Do ask questions about professional development and career prospects, for example. If you are hoping to use English for work, a Cambridge English Business Certificate could help you ", 14, "."],
+  ["To find out more, visit our website. Good luck with getting that job. Thanks for watching."]
+];
+ 
+const jaredBank  = ["answers","initiative","look the part","ask","practice","smart","research","speak clearly","interested","online","eye contact","questions","succeed","feedback","impress"];
+const jaredAnswers = ["practice","answers","questions","feedback","research","online","impress","initiative","look the part","smart","eye contact","speak clearly","ask","interested","succeed"];
+ 
+// READ SECTIONS
+const readData = [
+  {h:"Introduction", p:"Getting a job interview is exciting. It means a company is interested in you. But interviews can also make people nervous. The good news is that you can learn how to be better at them. Here are five important skills to help you succeed.", qs:[]},
+  {h:"Preparation is Key", p:"Before the interview, you need to prepare. This is the most important step. Good preparation will make you feel more confident. First, learn about the company — what does it do, what are its products or services? Look at their website. Knowing about the company shows you are truly interested. Next, read the job description again. Think about why you are a good person for this job. Prepare examples of your skills and experience. Also, prepare some questions to ask the interviewer. Finally, plan your journey. Know where the interview is and how to get there. It is best to arrive 10–15 minutes early.", qs:["\"What is a typical day like in this role?\" or \"How do you measure success for this position?\" — These types of questions show that you are thinking seriously about the job."]},
+  {h:"Use the STAR Method", p:"A good way to answer questions is by using the STAR method: Situation, Task, Action, and Result. When asked about your past experiences, first describe the Situation you were in. Then, explain the Task you needed to accomplish. Next, explain the specific Actions you took. Finally, share the Result of your actions, and measure it if possible.", qs:["\"I led a project (Situation) to improve customer satisfaction (Task) by introducing a new feedback system (Action), which reduced complaints by 15% (Result).\" This technique ensures your answers are clear, interesting, and easy for the interviewer to follow."]},
+  {h:"Good Communication Skills", p:"During the interview, how you speak is very important. The interviewer wants to understand you clearly. Speak slowly and clearly. Do not use slang or informal words. Think about your answer before you start speaking. It is okay to pause for a moment. Listen carefully to the questions. If you are not sure, it is fine to say \"That's a good question. Can I have a moment to think?\" Use positive language — talk about what you CAN do, not what you cannot do.", qs:["Instead of saying \"I don't have experience in that,\" you can say \"That is an area I am excited to learn about. I am a fast learner.\""]},
+  {h:"Positive Body Language", p:"A good first impression is formed within the first few seconds and is difficult to change. Your body language says a lot about you before you even speak. Try to look confident and friendly. Make eye contact — this shows you are paying attention and are honest. Offer a firm handshake at the beginning and the end. Sit up straight. Lean forward a little to show you are interested. Smile! A smile makes you seem friendly and positive. Try not to fold your arms, as this can look like you are closed off.", qs:[]},
+  {h:"Professionalism from Start to Finish", p:"Being professional means acting in a serious and respectful way. Dress neatly — it is better to be too formal than too casual. Be polite to everyone you meet, not just the interviewer. The receptionist might also be asked for their opinion of you. Turn off your phone before you go in. At the end, thank the interviewer for their time. After the interview, it is a nice touch to send a short email to thank them again.", qs:["\"Thank you for the opportunity to meet with you today. I am very interested in this position.\" — A simple, professional closing statement."]}
+];
+ 
+const secMeta = [
+  {icon:'🚀', color:'#1E3A5F', bg:'#D6E4F5'},
+  {icon:'📋', color:'#B8860B', bg:'#FDF5DC'},
+  {icon:'⭐', color:'#1565C0', bg:'#E3F2FD'},
+  {icon:'🗣️', color:'#1A7A5E', bg:'#D4EEE5'},
+  {icon:'💪', color:'#6A1B9A', bg:'#F3E5F5'},
+  {icon:'👔', color:'#BF360C', bg:'#FBE9E7'},
+];
+ 
+// COMPREHENSION QUESTIONS
+const compQs = [
+  "Why is preparation one of the most important things for a job interview?",
+  "What are some things you should do to prepare for a job interview?",
+  "Why is it a good idea to prepare some questions to ask the interviewer?",
+  "How can the STAR method help you answer interview questions effectively?",
+  "Why is good communication important during a job interview?",
+  "What are two examples of using positive language during an interview?",
+  "How can your body language affect the impression you make during an interview?",
+  "What are some ways to demonstrate professionalism during a job interview?",
+  "Why is it important to be polite to everyone you meet at the company, not just the interviewer?",
+  "What are the key skills mentioned in the text that can help you succeed in a job interview?"
+];
+ 
+// COMPREHENSION MCQ (10 questions)
+const compMCQ = [
+  {
+    q: "According to the text, what does knowing about the company before an interview show the interviewer?",
+    opts: [
+      "That you have a lot of work experience",
+      "That you are nervous and well-prepared",
+      "That you are truly interested in the position",
+      "That you have spoken to someone who works there"
+    ], a: 2
+  },
+  {
+    q: "The text says you should prepare questions to ask the interviewer. Why?",
+    opts: [
+      "Because the interviewer will be surprised if you don't",
+      "Because it shows you are thinking seriously about the job",
+      "Because it helps you to remember important information",
+      "Because it makes you seem more relaxed during the interview"
+    ], a: 1
+  },
+  {
+    q: "What is the STAR method used for in a job interview?",
+    opts: [
+      "To help you dress professionally and make a good impression",
+      "To help you remember to ask questions at the end",
+      "To help you structure your answers about past experiences",
+      "To help you research the company before the interview"
+    ], a: 2
+  },
+  {
+    q: "The text says it is okay to pause before answering a question. Why is this important?",
+    opts: [
+      "It shows you are an experienced professional",
+      "It gives you time to think about your response",
+      "It makes the interviewer think you are listening carefully",
+      "It allows you to change the subject if necessary"
+    ], a: 1
+  },
+  {
+    q: "What does the text mean by 'positive language'?",
+    opts: [
+      "Smiling and speaking in a friendly tone throughout the interview",
+      "Only talking about positive experiences from your career",
+      "Talking about what you CAN do rather than what you cannot",
+      "Agreeing with the interviewer's opinions and ideas"
+    ], a: 2
+  },
+  {
+    q: "According to the text, when is a first impression formed?",
+    opts: [
+      "After you have answered the first question",
+      "When you shake hands at the end of the interview",
+      "During the first five minutes of the interview",
+      "Within the first few seconds of meeting someone"
+    ], a: 3
+  },
+  {
+    q: "The text advises you not to fold your arms during an interview. Why?",
+    opts: [
+      "Because it looks like you are cold and uncomfortable",
+      "Because it can make you look closed off and unfriendly",
+      "Because it stops you from making gestures when you speak",
+      "Because it makes it difficult to shake hands quickly"
+    ], a: 1
+  },
+  {
+    q: "Why does the text say you should be polite to everyone at the company, not just the interviewer?",
+    opts: [
+      "Because all employees are equal in a professional company",
+      "Because other staff may introduce you to important people",
+      "Because the receptionist might also be asked for their opinion of you",
+      "Because being rude could affect other candidates who apply later"
+    ], a: 2
+  },
+  {
+    q: "What does the text suggest you do after the interview has finished?",
+    opts: [
+      "Call the company the following morning to ask for feedback",
+      "Send a short email to thank the interviewer",
+      "Write down all the questions you were asked",
+      "Contact the receptionist to ask how the interview went"
+    ], a: 1
+  },
+  {
+    q: "Which five skills does the text say will help you succeed in a job interview?",
+    opts: [
+      "Research, vocabulary, listening, reading, and confidence",
+      "Punctuality, dress, questions, experience, and teamwork",
+      "Preparation, the STAR method, communication, body language, and professionalism",
+      "Grammar, speaking, writing, body language, and preparation"
+    ], a: 2
+  }
+];
+ 
+// JOB PROFILE MCQ (5 questions)
+const jpMCQ = [
+  {
+    q: "According to the job profile, which qualifications does a successful candidate need?",
+    opts: [
+      "A master's degree or MBA is enough",
+      "A first degree is the only requirement",
+      "Either a first degree or a master's degree",
+      "A first degree AND a master's degree or MBA"
+    ], a: 3
+  },
+  {
+    q: "How many years of experience in an international company must candidates have?",
+    opts: [
+      "At least 2 years",
+      "At least 3 years",
+      "At least 5 years",
+      "At least 7 years"
+    ], a: 2
+  },
+  {
+    q: "What does the job profile say about experience with online sales?",
+    opts: [
+      "It is the most important requirement for the role",
+      "All candidates must have experience in online sales",
+      "It would be an advantage but is not required",
+      "It is not mentioned anywhere in the job profile"
+    ], a: 2
+  },
+  {
+    q: "Which of the following is listed as a required SKILL for this position?",
+    opts: [
+      "Experience managing a large sales team",
+      "Knowledge of IT hardware and software",
+      "Strong communication skills",
+      "A background in digital marketing"
+    ], a: 2
+  },
+  {
+    q: "What does the job profile say about languages?",
+    opts: [
+      "Candidates must be fluent in Mandarin or Spanish",
+      "English is the only language required",
+      "French or another European language is preferred",
+      "Candidates need English plus at least one other language"
+    ], a: 3
+  }
+];
+ 
+// VOCABULARY — 15 PAIRS
+const vocabPairs = [
+  {w:"STAR method",         d:"a way to answer questions by talking about a Situation, Task, Action, and Result"},
+  {w:"position",            d:"a specific job or role within a company or organization"},
+  {w:"job description",     d:"a list of tasks and duties for a specific work role"},
+  {w:"respectful",          d:"treating others with kindness and consideration"},
+  {w:"preparation",         d:"getting ready for something by gathering what you need and planning"},
+  {w:"body language",       d:"the way you use your body to show feelings or thoughts without words"},
+  {w:"first impression",    d:"the opinion someone forms when they meet you for the first time"},
+  {w:"show your best self", d:"acting in a way that shows your positive qualities and strengths"},
+  {w:"professionalism",     d:"showing good behavior and skills in a work setting"},
+  {w:"confident",           d:"feeling sure about yourself and your abilities"},
+  {w:"handshake",           d:"a greeting where two people hold and shake each other's right hand"},
+  {w:"punctual",            d:"arriving at the correct time; not being late"},
+  {w:"slang",               d:"very informal words and phrases not suitable for professional situations"},
+  {w:"career prospects",    d:"the chances and opportunities for future progress and advancement in a job"},
+  {w:"panel",               d:"a group of people chosen to ask questions or make decisions in an interview"}
+];
+ 
+// DANIEL TRUE/FALSE
+const danielData = [
+  {s:"Daniel's rock climbing experience is impressive.",                                          a:false},
+  {s:"Daniel thinks that he should be working in a bigger company than Networld.",                a:true},
+  {s:"Daniel expects to work at Webware for a long time.",                                       a:false},
+  {s:"Daniel prefers to give warnings before dismissing employees.",                              a:false},
+  {s:"Marcia is impressed by Daniel's people management skills.",                                 a:false},
+  {s:"Daniel has good ideas about how to handle a rapidly changing market.",                      a:false},
+  {s:"Daniel speaks Mandarin Chinese very well.",                                                 a:false},
+  {s:"Daniel finds closing deals to be a challenging task.",                                      a:false},
+  {s:"Daniel did not ask any questions during the interview.",                                    a:true},
+  {s:"Daniel's interview performance was very good overall.",                                     a:false}
+];
+ 
+// SARAH TRUE/FALSE
+const sarahData = [
+  {s:"Sarah has some experience of doing voluntary work.",                                        a:true},
+  {s:"Sarah is currently a Sales Director for a language school.",                               a:false},
+  {s:"Sarah thinks that the new job would involve very different skills from her current job.",   a:false},
+  {s:"Sarah wants a new job because she has too much responsibility in her current job.",         a:false},
+  {s:"When two of her staff had problems with each other, Sarah helped improve the situation.",   a:true},
+  {s:"Sarah speaks only one foreign language.",                                                   a:false},
+  {s:"Sarah successfully closed a challenging deal with a university in India.",                  a:true},
+  {s:"The company is currently working on improving its ethical policies.",                       a:true},
+  {s:"Sarah is interested in environmental issues.",                                              a:true},
+  {s:"Sarah thinks it's useful to diversify business strategies.",                               a:true}
+];
+ 
+// DO's & DON'Ts
+const dosBank = ["of things you've done in your career","strengths","with details and explanations","in the company and the job","questions","to quit this company","current job or colleagues strongly","answers that lack details","qualities (e.g. carelessness or arrogance)","that are untrue"];
+const dosAnswers = ["of things you've done in your career","strengths","with details and explanations","in the company and the job","questions","to quit this company","current job or colleagues strongly","answers that lack details","qualities (e.g. carelessness or arrogance)","that are untrue"];
+ 
+const dosList = [
+  {prefix:"give examples", n:0},
+  {prefix:"highlight your", n:1},
+  {prefix:"develop your answers", n:2},
+  {prefix:"show your interest", n:3},
+  {prefix:"ask", n:4}
+];
+const dontsList = [
+  {prefix:"mention plans", n:5},
+  {prefix:"criticise your", n:6},
+  {prefix:"give short", n:7},
+  {prefix:"show negative", n:8},
+  {prefix:"say things", n:9}
+];
+ 
+// DISCUSSION
+const discQs = [
+  "Have you ever had a job interview before? How did it go?",
+  "What do you think is the most important thing to prepare for a job interview?",
+  "How do you feel when you think about going to a job interview?",
+  "What questions do you think employers ask in interviews?",
+  "Do you think it is important to dress well for a job interview? Why?",
+  "How can someone show confidence during an interview?"
+];
+ 
+// ════════════════════════════════
+// STATE
+// ════════════════════════════════
+let totalScore = 0;
+let doneFlags = {};
+ 
+// Gap fill 3
+let gSel3 = null, gFills3 = Array(15).fill(null), gScored3 = false;
+ 
+// Read
+let secRead = 0;
+ 
+// Vocab
+let vSel = null, vMatched = 0;
+let vShuffledDefs = [];
+ 
+// Comp
+let compDone = 0, compScored = false;
+ 
+// T/F
+let dAnswered = 0, dScore = 0;
+let sAnswered = 0, sScore = 0;
+ 
+// Dos
+let dosSel = null, dosFills = Array(10).fill(null), dosScored = false;
+ 
+// Discuss
+let discDone = 0;
+ 
+// ════════════════════════════════
+// NAVIGATION
+// ════════════════════════════════
+function goTo(n) {
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('s'+n).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('nb'+n).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+ 
+function markDone(n) {
+  if (!doneFlags[n]) {
+    doneFlags[n]=true;
+    document.getElementById('nb'+n).classList.add('done');
+  }
+}
+ 
+function markDoneSimple(n) { markDone(n); }
+ 
+function addPts(n) {
+  totalScore+=n;
+  document.getElementById('scoreDisplay').textContent=totalScore;
+}
+ 
+// ════════════════════════════════
+// ACT 1 — PREDICT
+// ════════════════════════════════
+function buildPredict() {
+  const c=document.getElementById('sentBoxes');
+  sentHints.forEach((h,i)=>{
+    c.innerHTML+=`
+      <div class="s-group">
+        <div class="s-label"><span class="s-num">${i+1}</span>${h}</div>
+        <textarea class="s-input" id="si${i}" placeholder="Write your sentence here…" oninput="wcUp(${i})"></textarea>
+        <div class="wc" id="wc${i}">0 words</div>
+      </div>`;
+  });
+}
+ 
+function wcUp(i) {
+  const v=document.getElementById('si'+i).value.trim();
+  const w=v?v.split(/\s+/).length:0;
+  document.getElementById('wc'+i).textContent=w+(w===1?' word':' words');
+}
+ 
+function submitPredict() {
+  let filled=0;
+  for(let i=0;i<5;i++) if(document.getElementById('si'+i).value.trim().length>4) filled++;
+  const fb=document.getElementById('fb1');
+  if(filled<3){fb.className='fb err show';fb.textContent='✏️ Please write at least 3 sentences before continuing.';return;}
+  fb.className='fb ok show';
+  fb.innerHTML='🎉 Great predictions! You earned <strong>10 points</strong>. Now watch the video and see what Jared says!';
+  if(!doneFlags[1]){addPts(10);markDone(1);}
+  setTimeout(()=>goTo(2),1800);
+}
+ 
+// ════════════════════════════════
+// ACT 2 — VIDEO
+// ════════════════════════════════
+function finishVideo() {
+  const fb=document.getElementById('fb2');
+  fb.className='fb ok show';
+  fb.innerHTML='📺 Great! Now complete the gap fill to check what you heard.';
+  if(!doneFlags[2]) markDone(2);
+  setTimeout(()=>goTo(3),1600);
+}
+ 
+// ════════════════════════════════
+// ACT 3 — GAP FILL (JARED)
+// ════════════════════════════════
+function buildGaps3() {
+  const bc=document.getElementById('wBank3');
+  jaredBank.forEach((w,i)=>{
+    bc.innerHTML+=`<button class="bchip" id="bc3-${i}" onclick="selChip3(${i})" data-w="${w}">${w}</button>`;
+  });
+  const sc=document.getElementById('jaredScript');
+  jaredScript.forEach((para,pi)=>{
+    let html='<div class="script-para">';
+    para.forEach(seg=>{
+      if(typeof seg==='string') html+=seg;
+      else html+=`<span class="igap" id="jg${seg}" onclick="fillIGap(${seg})"><span class="gap-num">${seg+1}</span></span>`;
+    });
+    html+='</div>';
+    sc.innerHTML+=html;
+  });
+}
+ 
+function selChip3(i) {
+  const chip=document.getElementById('bc3-'+i);
+  if(chip.classList.contains('used')) return;
+  document.querySelectorAll('[id^="bc3-"]').forEach(c=>{c.classList.remove('bsel');});
+  gSel3=i;
+  chip.classList.add('bsel');
+}
+ 
+function fillIGap(gi) {
+  if(gSel3===null){
+    if(gFills3[gi]!==null){
+      document.getElementById('bc3-'+gFills3[gi]).classList.remove('used');
+      const g=document.getElementById('jg'+gi);
+      g.innerHTML=`<span class="gap-num">${gi+1}</span>`;
+      g.classList.remove('gfilled');
+      gFills3[gi]=null;
+    }
+    return;
+  }
+  if(gFills3[gi]!==null){
+    document.getElementById('bc3-'+gFills3[gi]).classList.remove('used');
+  }
+  const chip=document.getElementById('bc3-'+gSel3);
+  const word=chip.getAttribute('data-w');
+  const g=document.getElementById('jg'+gi);
+  g.innerHTML=`<span class="gap-num">${gi+1}</span>${word}`;
+  g.classList.add('gfilled');
+  chip.classList.remove('bsel');chip.classList.add('used');
+  gFills3[gi]=gSel3;
+  gSel3=null;
+}
+ 
+function checkGaps3() {
+  let correct=0;
+  for(let i=0;i<15;i++){
+    const g=document.getElementById('jg'+i);
+    g.classList.remove('gfilled','gcorrect','gwrong');
+    const chipIdx=gFills3[i];
+    const filled=chipIdx!==null?jaredBank[chipIdx].toLowerCase().trim():'';
+    const ans=jaredAnswers[i].toLowerCase().trim();
+    if(filled===ans){g.classList.add('gcorrect');correct++;}
+    else g.classList.add('gwrong');
+  }
+  const pts=correct*4;
+  const fb=document.getElementById('fb3');
+  if(correct===15){
+    fb.className='fb ok show';
+    fb.innerHTML=`🎉 Perfect! All 15 correct! You earned <strong>${pts} points</strong>!`;
+    if(!gScored3){addPts(pts);gScored3=true;markDone(3);}
+    document.getElementById('next3').style.display='block';
+    confetti();
+  } else {
+    fb.className='fb err show';
+    fb.innerHTML=`📝 ${correct}/15 correct. Check the red gaps and try again! ${!gScored3?`You earned <strong>${pts} points</strong> for this attempt.`:''}`;
+    if(!gScored3){addPts(pts);gScored3=true;}
+    document.getElementById('reset3').style.display='inline-block';
+    if(correct>=12) document.getElementById('next3').style.display='block';
+  }
+}
+ 
+function resetGaps3() {
+  gFills3=Array(15).fill(null);gSel3=null;
+  for(let i=0;i<15;i++){
+    const g=document.getElementById('jg'+i);
+    g.innerHTML=`<span class="gap-num">${i+1}</span>`;
+    g.className='igap';
+  }
+  jaredBank.forEach((_,i)=>{
+    const c=document.getElementById('bc3-'+i);
+    c.classList.remove('used','bsel');
+  });
+  document.getElementById('fb3').className='fb';
+  document.getElementById('reset3').style.display='none';
+}
+ 
+// ════════════════════════════════
+// ACT 4 — READ
+// ════════════════════════════════
+function buildRead() {
+  const c=document.getElementById('readSections');
+  readData.forEach((sec,i)=>{
+    const m=secMeta[i];
+    const wc=sec.p.trim().split(/\s+/).length;
+    const qs=sec.qs.map(q=>`
+      <div class="rq">
+        <div class="rq-mark">"</div>
+        <div><div class="rq-text">${q}</div></div>
+      </div>`).join('');
+    c.innerHTML+=`
+      <div class="rcard" id="rc${i}">
+        <div class="rcard-accent" style="background:linear-gradient(90deg,${m.color},${m.color}88)"></div>
+        <div class="rcard-head" onclick="toggleSec(${i})">
+          <div class="rcard-icon" style="background:${m.bg}">${m.icon}</div>
+          <div>
+            <div class="rcard-title">${sec.h}</div>
+            <div class="rcard-hint">~${wc} words${sec.qs.length?' · '+sec.qs.length+' quote'+(sec.qs.length>1?'s':''):''}</div>
+          </div>
+          <div class="rcard-right">
+            <span class="rdone-badge">✓ Read</span>
+            <span class="rcard-arrow">▼</span>
+          </div>
+        </div>
+        <div class="rcard-body">
+          <div class="rcard-body-inner"><p>${sec.p}</p>${qs}</div>
+          <div class="rcard-footer">
+            <span class="rcard-wc">📖 ~${wc} words</span>
+            <button class="mrb" id="mrb${i}" onclick="markSecRead(${i},event)">✓ Mark as Read</button>
+          </div>
+        </div>
+      </div>`;
+  });
+}
+ 
+function toggleSec(i) {
+  document.getElementById('rc'+i).classList.toggle('rc-open');
+}
+ 
+function markSecRead(i,e) {
+  e.stopPropagation();
+  const btn=document.getElementById('mrb'+i);
+  if(btn.classList.contains('is-read')) return;
+  btn.classList.add('is-read');btn.textContent='✅ Done!';
+  document.getElementById('rc'+i).classList.add('rc-done');
+  secRead++;
+  const pct=Math.round(secRead/readData.length*100);
+  document.getElementById('readProgLbl').textContent=`📖 ${secRead} of ${readData.length} sections read`;
+  document.getElementById('readProgPct').textContent=pct+'%';
+  document.getElementById('readProgFill').style.width=pct+'%';
+}
+ 
+function finishRead() {
+  if(secRead<1){
+    const fb=document.getElementById('fb4');
+    fb.className='fb err show';fb.textContent='📖 Please open and read at least one section before continuing.';return;
+  }
+  const fb=document.getElementById('fb4');
+  fb.className='fb ok show';
+  fb.innerHTML=secRead===readData.length?'🌟 Excellent! You read all 6 sections! Now let\'s test your understanding.':'📚 Good work! You can always return to read more. Let\'s check your understanding!';
+  if(!doneFlags[4]) markDone(4);
+  setTimeout(()=>goTo(5),1700);
+}
+ 
+// ════════════════════════════════
+// ACT 5 — COMPREHENSION MCQ
+// ════════════════════════════════
+let cqIdx=0, cqScore=0, cqAnswered=false, cqScored=false;
+ 
+function buildCompMCQ() { renderCQ(); }
+ 
+function renderCQ() {
+  const q=compMCQ[cqIdx];
+  const L=['a','b','c','d'];
+  document.getElementById('cqCard').innerHTML=`
+    <div class="q-text">Q${cqIdx+1}. ${q.q}</div>
+    ${q.opts.map((o,i)=>`<button class="opt" id="cqo${i}" onclick="pickCQ(${i})">${L[i]}) ${o}</button>`).join('')}`;
+  document.getElementById('cqProg').textContent=`Question ${cqIdx+1} of ${compMCQ.length}`;
+  document.getElementById('cqBar').style.width=(cqIdx/compMCQ.length*100)+'%';
+  document.getElementById('cqNext').style.display='none';
+  cqAnswered=false;
+}
+ 
+function pickCQ(i) {
+  if(cqAnswered) return;
+  cqAnswered=true;
+  const correct=compMCQ[cqIdx].a;
+  document.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+  if(i===correct){document.getElementById('cqo'+i).classList.add('ok');cqScore+=5;document.getElementById('cqScore').textContent='Score: '+cqScore;}
+  else{document.getElementById('cqo'+i).classList.add('err');document.getElementById('cqo'+correct).classList.add('reveal');}
+  document.getElementById('cqNext').style.display='inline-block';
+  if(cqIdx===compMCQ.length-1) document.getElementById('cqNext').textContent='See Results 🏆';
+}
+ 
+function nextCQ() {
+  cqIdx++;
+  if(cqIdx>=compMCQ.length){
+    document.getElementById('cqCard').style.display='none';
+    document.getElementById('cqNav').style.display='none';
+    document.getElementById('cqBar').style.width='100%';
+    document.getElementById('cqProg').textContent='Complete!';
+    const pct=Math.round(cqScore/50*100);
+    document.getElementById('cqResult').innerHTML=`
+      <div class="result-box">
+        <div style="font-size:2.8rem;margin-bottom:10px">${pct>=80?'🏆':pct>=60?'🎯':'💪'}</div>
+        <div style="font-size:1.7rem;font-weight:900;color:var(--navy);margin-bottom:8px">${cqScore} / 50 pts</div>
+        <div style="font-size:1rem;font-weight:800;color:var(--gold);margin-bottom:14px">${pct}% — ${pct>=80?'Excellent!':pct>=60?'Good work!':'Keep practising!'}</div>
+        <p style="color:var(--muted);font-size:.88rem;margin-bottom:20px">You answered ${cqScore/5} out of 10 questions correctly.</p>
+        <button class="btn btn-navy" onclick="goTo(6)">Next Activity ➜</button>
+      </div>`;
+    document.getElementById('cqResult').style.display='block';
+    if(!cqScored){addPts(cqScore);cqScored=true;markDone(5);}
+    if(pct>=80) confetti();
+  } else { renderCQ(); }
+}
+ 
+// ════════════════════════════════
+// ACT 7 — JOB PROFILE MCQ
+// ════════════════════════════════
+let jpIdx=0, jpScore=0, jpAnswered=false, jpScored=false;
+ 
+function buildJPMCQ() { renderJP(); }
+ 
+function renderJP() {
+  const q=jpMCQ[jpIdx];
+  const L=['a','b','c','d'];
+  document.getElementById('jpCard').innerHTML=`
+    <div class="q-text">Q${jpIdx+1}. ${q.q}</div>
+    ${q.opts.map((o,i)=>`<button class="opt" id="jpo${i}" onclick="pickJP(${i})">${L[i]}) ${o}</button>`).join('')}`;
+  document.getElementById('jpProg').textContent=`Question ${jpIdx+1} of ${jpMCQ.length}`;
+  document.getElementById('jpBar').style.width=(jpIdx/jpMCQ.length*100)+'%';
+  document.getElementById('jpNext').style.display='none';
+  jpAnswered=false;
+}
+ 
+function pickJP(i) {
+  if(jpAnswered) return;
+  jpAnswered=true;
+  const correct=jpMCQ[jpIdx].a;
+  document.querySelectorAll('#jpCard .opt').forEach(b=>b.disabled=true);
+  if(i===correct){document.getElementById('jpo'+i).classList.add('ok');jpScore+=5;document.getElementById('jpScore').textContent='Score: '+jpScore;}
+  else{document.getElementById('jpo'+i).classList.add('err');document.getElementById('jpo'+correct).classList.add('reveal');}
+  document.getElementById('jpNext').style.display='inline-block';
+  if(jpIdx===jpMCQ.length-1) document.getElementById('jpNext').textContent='See Results 🏆';
+}
+ 
+function nextJP() {
+  jpIdx++;
+  if(jpIdx>=jpMCQ.length){
+    document.getElementById('jpCard').style.display='none';
+    document.getElementById('jpNav').style.display='none';
+    document.getElementById('jpBar').style.width='100%';
+    document.getElementById('jpProg').textContent='Complete!';
+    const pct=Math.round(jpScore/25*100);
+    document.getElementById('jpResult').innerHTML=`
+      <div class="result-box" style="margin-top:16px">
+        <div style="font-size:2.4rem;margin-bottom:8px">${pct>=80?'🏆':pct>=60?'🎯':'💪'}</div>
+        <div style="font-size:1.5rem;font-weight:900;color:var(--navy);margin-bottom:8px">${jpScore} / 25 pts · ${pct}%</div>
+        <p style="color:var(--muted);font-size:.88rem;margin-bottom:18px">${pct===100?'Perfect! You know exactly what Webware is looking for.':pct>=80?'Great! You understand the job requirements well.':'Review the job profile above and try to remember the key requirements.'}</p>
+        <button class="btn btn-navy" onclick="goTo(8)">Continue to Interviews ➜</button>
+      </div>`;
+    document.getElementById('jpResult').style.display='block';
+    if(!jpScored){addPts(jpScore);jpScored=true;markDone(7);}
+    if(pct>=80) confetti();
+  } else { renderJP(); }
+}
+ 
+// ════════════════════════════════
+// ACT 6 — VOCABULARY
+// ════════════════════════════════
+function buildVocab() {
+  vShuffledDefs=[...vocabPairs].sort(()=>Math.random()-.5);
+  const wc=document.getElementById('vWords');
+  const dc=document.getElementById('vDefs');
+  vocabPairs.forEach((p,i)=>{
+    wc.innerHTML+=`<button class="vchip" id="vw${i}" onclick="pickVW(${i})">${p.w}</button>`;
+  });
+  vShuffledDefs.forEach((p,i)=>{
+    dc.innerHTML+=`<button class="vchip" id="vd${i}" onclick="pickVD(${i})" data-d="${p.d}">${p.d}</button>`;
+  });
+}
+ 
+function pickVW(i) {
+  if(document.getElementById('vw'+i).classList.contains('matched')) return;
+  document.querySelectorAll('[id^="vw"]').forEach(e=>e.classList.remove('vsel'));
+  vSel=i;
+  document.getElementById('vw'+i).classList.add('vsel');
+}
+ 
+function pickVD(i) {
+  if(vSel===null) return;
+  const de=document.getElementById('vd'+i);
+  if(de.classList.contains('matched')) return;
+  if(de.getAttribute('data-d')===vocabPairs[vSel].d){
+    document.getElementById('vw'+vSel).classList.remove('vsel');
+    document.getElementById('vw'+vSel).classList.add('matched');
+    de.classList.add('matched');
+    vMatched++;addPts(5);vSel=null;
+    if(vMatched===vocabPairs.length){
+      const fb=document.getElementById('fb6');
+      fb.className='fb ok show';fb.innerHTML='🎉 All 15 words matched! You earned 75 points!';
+      markDone(6);document.getElementById('v-next').style.display='block';confetti();
+    }
+  } else {
+    de.classList.add('shake');
+    document.getElementById('vw'+vSel).classList.add('shake');
+    setTimeout(()=>{de.classList.remove('shake');document.getElementById('vw'+vSel).classList.remove('shake','vsel');vSel=null;},500);
+  }
+}
+ 
+// ════════════════════════════════
+// ACT 9 — DANIEL T/F
+// ════════════════════════════════
+function buildDanielTF() {
+  const c=document.getElementById('danielTF');
+  danielData.forEach((item,i)=>{
+    c.innerHTML+=`
+      <div class="tf-card" id="dtf${i}">
+        <div class="tf-stmt"><div class="tf-n">${i+1}</div><span>${item.s}</span></div>
+        <div class="tf-btns">
+          <button class="tf-btn tf-true" id="dt${i}-t" onclick="answerTF('d',${i},true)">✓ True</button>
+          <button class="tf-btn tf-false" id="dt${i}-f" onclick="answerTF('d',${i},false)">✗ False</button>
+        </div>
+        <div class="tf-result" id="dtr${i}"></div>
+      </div>`;
+  });
+}
+ 
+function buildSarahTF() {
+  const c=document.getElementById('sarahTF');
+  sarahData.forEach((item,i)=>{
+    c.innerHTML+=`
+      <div class="tf-card" id="stf${i}">
+        <div class="tf-stmt"><div class="tf-n">${i+1}</div><span>${item.s}</span></div>
+        <div class="tf-btns">
+          <button class="tf-btn tf-true" id="st${i}-t" onclick="answerTF('s',${i},true)">✓ True</button>
+          <button class="tf-btn tf-false" id="st${i}-f" onclick="answerTF('s',${i},false)">✗ False</button>
+        </div>
+        <div class="tf-result" id="str${i}"></div>
+      </div>`;
+  });
+}
+ 
+function answerTF(who, i, chosen) {
+  const data = who==='d'?danielData:sarahData;
+  const correct = data[i].a;
+  const prefix = who==='d'?'d':'s';
+  const card = document.getElementById(prefix+'tf'+i);
+  const resEl = document.getElementById(prefix+'tr'+i);
+ 
+  // disable buttons
+  document.getElementById(prefix+'t'+i+'-t').disabled=true;
+  document.getElementById(prefix+'t'+i+'-f').disabled=true;
+ 
+  if(chosen===correct){
+    card.classList.add('tf-correct');
+    resEl.className='tf-result show';
+    resEl.style.color='var(--green)';
+    resEl.textContent='✅ Correct! +5 points';
+    addPts(5);
+    if(who==='d') dScore+=5;
+    else sScore+=5;
+  } else {
+    card.classList.add('tf-wrong');
+    resEl.className='tf-result show';
+    resEl.style.color='var(--coral)';
+    resEl.textContent='❌ Incorrect. The answer is '+(correct?'TRUE':'FALSE')+'.';
+  }
+ 
+  if(who==='d'){
+    dAnswered++;
+    document.getElementById('d-prog').textContent=`${dAnswered} / 10 answered`;
+    document.getElementById('d-score').textContent=`Score: ${dScore}`;
+    document.getElementById('d-bar').style.width=(dAnswered/10*100)+'%';
+    if(dAnswered===10){markDone(9);document.getElementById('d-next').style.display='block';if(dScore>=40)confetti();}
+  } else {
+    sAnswered++;
+    document.getElementById('s-prog').textContent=`${sAnswered} / 10 answered`;
+    document.getElementById('s-score').textContent=`Score: ${sScore}`;
+    document.getElementById('s-bar').style.width=(sAnswered/10*100)+'%';
+    if(sAnswered===10){markDone(10);document.getElementById('s-next').style.display='block';if(sScore>=40)confetti();}
+  }
+}
+ 
+// ════════════════════════════════
+// ACT 11 — DO's & DON'Ts
+// ════════════════════════════════
+function buildDos() {
+  const bc=document.getElementById('wBankDos');
+  dosBank.forEach((w,i)=>{
+    bc.innerHTML+=`<button class="bchip" id="dbc${i}" onclick="selDosCh(${i})" data-w="${w}">${w}</button>`;
+  });
+ 
+  const grid=document.getElementById('dosGrid');
+  let doHtml=`<div class="dos-col">
+    <div class="dos-head do-head">✅ DO</div>
+    <div class="dos-body do-body">`;
+  dosList.forEach(item=>{
+    doHtml+=`<div class="dos-item">${item.prefix} <span class="dgap" id="dg${item.n}" onclick="fillDGap(${item.n})"></span></div>`;
+  });
+  doHtml+='</div></div>';
+ 
+  let dontHtml=`<div class="dos-col">
+    <div class="dos-head dont-head">❌ DON'T</div>
+    <div class="dos-body dont-body">`;
+  dontsList.forEach(item=>{
+    dontHtml+=`<div class="dos-item">${item.prefix} <span class="dgap" id="dg${item.n}" onclick="fillDGap(${item.n})"></span></div>`;
+  });
+  dontHtml+='</div></div>';
+ 
+  grid.innerHTML=doHtml+dontHtml;
+}
+ 
+function selDosCh(i) {
+  const chip=document.getElementById('dbc'+i);
+  if(chip.classList.contains('used')) return;
+  document.querySelectorAll('[id^="dbc"]').forEach(c=>c.classList.remove('bsel'));
+  dosSel=i;chip.classList.add('bsel');
+}
+ 
+function fillDGap(gi) {
+  if(dosSel===null){
+    if(dosFills[gi]!==null){
+      document.getElementById('dbc'+dosFills[gi]).classList.remove('used');
+      document.getElementById('dg'+gi).textContent='';
+      document.getElementById('dg'+gi).classList.remove('gfilled');
+      dosFills[gi]=null;
+    }
+    return;
+  }
+  if(dosFills[gi]!==null) document.getElementById('dbc'+dosFills[gi]).classList.remove('used');
+  const chip=document.getElementById('dbc'+dosSel);
+  const word=chip.getAttribute('data-w');
+  document.getElementById('dg'+gi).textContent=word;
+  document.getElementById('dg'+gi).classList.add('gfilled');
+  chip.classList.remove('bsel');chip.classList.add('used');
+  dosFills[gi]=dosSel;dosSel=null;
+}
+ 
+function checkDos() {
+  let correct=0;
+  for(let i=0;i<10;i++){
+    const g=document.getElementById('dg'+i);
+    g.classList.remove('gfilled','gcorrect','gwrong');
+    const chipIdx=dosFills[i];
+    const filled=chipIdx!==null?dosBank[chipIdx].toLowerCase().trim():'';
+    const ans=dosAnswers[i].toLowerCase().trim();
+    if(filled===ans){g.classList.add('gcorrect');correct++;}
+    else g.classList.add('gwrong');
+  }
+  const pts=correct*5;
+  const fb=document.getElementById('fb11');
+  if(correct===10){
+    fb.className='fb ok show';fb.innerHTML=`🎉 Perfect! All 10 correct! You earned <strong>${pts} points</strong>!`;
+    if(!dosScored){addPts(pts);dosScored=true;markDone(11);}
+    document.getElementById('dos-next').style.display='block';confetti();
+  } else {
+    fb.className='fb err show';
+    fb.innerHTML=`📝 ${correct}/10 correct. Check the red gaps and try again!${!dosScored?' You earned <strong>'+pts+' points</strong> for this attempt.':''}`;
+    if(!dosScored){addPts(pts);dosScored=true;}
+    document.getElementById('resetDos').style.display='inline-block';
+    if(correct>=8) document.getElementById('dos-next').style.display='block';
+  }
+}
+ 
+function resetDosGaps() {
+  dosFills=Array(10).fill(null);dosSel=null;
+  for(let i=0;i<10;i++){
+    const g=document.getElementById('dg'+i);
+    g.textContent='';g.className='dgap';
+  }
+  dosBank.forEach((_,i)=>{
+    const c=document.getElementById('dbc'+i);
+    c.classList.remove('used','bsel');
+  });
+  document.getElementById('fb11').className='fb';
+  document.getElementById('resetDos').style.display='none';
+}
+ 
+// ════════════════════════════════
+// ACT 12 — DISCUSS
+// ════════════════════════════════
+function buildDisc() {
+  const c=document.getElementById('discCards');
+  discQs.forEach((q,i)=>{
+    c.innerHTML+=`
+      <div class="disc-card" id="dc${i}">
+        <div class="dq"><div class="dq-num">${i+1}</div><span>${q}</span></div>
+        <textarea class="dtxt" id="dt${i}" placeholder="Write your ideas here…" oninput="discCC(${i})"></textarea>
+        <div class="disc-foot">
+          <span class="cc" id="dcc${i}">0 / 150 characters</span>
+          <button class="done-btn" id="db${i}" onclick="markDiscDone(${i})">✓ Done</button>
+        </div>
+      </div>`;
+  });
+}
+ 
+function discCC(i) {
+  const v=document.getElementById('dt'+i).value;
+  document.getElementById('dcc'+i).textContent=v.length+' / 150 characters';
+}
+ 
+function markDiscDone(i) {
+  const btn=document.getElementById('db'+i);
+  if(btn.classList.contains('is-done')) return;
+  btn.classList.add('is-done');btn.textContent='✅ Done!';
+  document.getElementById('dc'+i).classList.add('disc-done');
+  discDone++;addPts(5);
+  if(discDone===discQs.length){markDone(12);document.getElementById('certTrigger').style.display='block';}
+}
+ 
+// ════════════════════════════════
+// CERTIFICATE
+// ════════════════════════════════
+function openCert() {
+  const pct=Math.round(totalScore/400*100);
+  let icon='🏆',msg='';
+  if(pct>=90){icon='🥇';msg='Outstanding! You have demonstrated excellent knowledge of job interview skills. Employers would be impressed!';}
+  else if(pct>=80){icon='🏆';msg='Excellent! You have shown strong understanding of interview skills and vocabulary. Well done!';}
+  else if(pct>=70){icon='🎯';msg='Good work! You showed solid understanding. Review the activities to improve further.';}
+  else{icon='💪';msg='Good effort! Review the text and activities to strengthen your interview skills knowledge.';}
+  document.getElementById('certIcon').textContent=icon;
+  document.getElementById('certPts').textContent=totalScore+' / 400 pts · '+pct+'%';
+  document.getElementById('certMsg').textContent=msg;
+  document.getElementById('certOverlay').classList.add('open');
+  confetti();
+}
+ 
+// ════════════════════════════════
+// CONFETTI
+// ════════════════════════════════
+function confetti() {
+  const cols=['#1E3A5F','#C9A227','#C84B31','#1A7A5E','#5B2D8E','#2563EB'];
+  for(let i=0;i<55;i++){
+    const el=document.createElement('div');
+    el.className='cp';
+    el.style.cssText=`left:${Math.random()*100}vw;width:${Math.random()*9+5}px;height:${Math.random()*9+5}px;background:${cols[Math.floor(Math.random()*cols.length)]};border-radius:${Math.random()>.5?'50%':'2px'};animation-duration:${Math.random()*2+1.4}s;animation-delay:${Math.random()*.4}s`;
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),3200);
+  }
+}
+ 
+// ════════════════════════════════
+// SAVE / LOAD PROGRESS
+// ════════════════════════════════
+function saveProgress() {
+  const data = {
+    version: 1,
+    appName: "Job Interview Skills in English — B1 Lab",
+    savedAt: new Date().toLocaleString(),
+    totalScore,
+    doneFlags,
+    gapScored3,
+    gapFills3: gapFills3.map(f => f !== null ? jaredBank[f] : null),
+    secRead,
+    cqIdx, cqScore, cqScored,
+    vMatched,
+    jpIdx, jpScore, jpScored,
+    dAnswered, dScore,
+    sAnswered, sScore,
+    dosScored,
+    dosFills: dosFills.map(f => f !== null ? dosBank[f] : null),
+    discDone
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'job-interview-progress.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  showSaveMsg('✅ Saved! Keep your file safe.');
+}
+ 
+function loadProgress(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const d = JSON.parse(e.target.result);
+      if (!d.appName || !d.appName.includes('Job Interview')) {
+        showSaveMsg('❌ Wrong file — please use a Job Interview save file.');
+        return;
+      }
+      // Restore core state
+      totalScore = d.totalScore || 0;
+      document.getElementById('scoreDisplay').textContent = totalScore;
+      doneFlags = d.doneFlags || {};
+      Object.keys(doneFlags).forEach(n => {
+        if (doneFlags[n]) document.getElementById('nb'+n)?.classList.add('done');
+      });
+      // Restore activity states
+      if (d.gapScored3) gapScored3 = true;
+      secRead = d.secRead || 0;
+      if (d.secRead > 0) {
+        document.getElementById('readProgLbl').textContent = `📖 ${d.secRead} of 6 sections read`;
+        document.getElementById('readProgPct').textContent = Math.round(d.secRead/6*100)+'%';
+        document.getElementById('readProgFill').style.width = Math.round(d.secRead/6*100)+'%';
+      }
+      cqIdx = d.cqIdx || 0; cqScore = d.cqScore || 0; cqScored = d.cqScored || false;
+      if (cqScored) { renderCQ(); document.getElementById('cqScore').textContent='Score: '+cqScore; }
+      vMatched = d.vMatched || 0;
+      jpIdx = d.jpIdx || 0; jpScore = d.jpScore || 0; jpScored = d.jpScored || false;
+      if (jpScored) { renderJP(); document.getElementById('jpScore').textContent='Score: '+jpScore; }
+      dAnswered = d.dAnswered || 0; dScore = d.dScore || 0;
+      sAnswered = d.sAnswered || 0; sScore = d.sScore || 0;
+      if (d.dAnswered > 0) { document.getElementById('d-prog').textContent=`${d.dAnswered} / 10 answered`; document.getElementById('d-score').textContent='Score: '+d.dScore; document.getElementById('d-bar').style.width=(d.dAnswered/10*100)+'%'; }
+      if (d.sAnswered > 0) { document.getElementById('s-prog').textContent=`${d.sAnswered} / 10 answered`; document.getElementById('s-score').textContent='Score: '+d.sScore; document.getElementById('s-bar').style.width=(d.sAnswered/10*100)+'%'; }
+      dosScored = d.dosScored || false;
+      discDone = d.discDone || 0;
+      showSaveMsg('📂 Progress loaded! Carry on from where you stopped.');
+    } catch(err) {
+      showSaveMsg('❌ Could not read file. Please try again.');
+    }
+  };
+  reader.readAsText(file);
+  input.value = '';
+}
+ 
+function showSaveMsg(msg) {
+  const el = document.getElementById('saveMsg');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 4000);
+}
+ 
+// ════════════════════════════════
+// PRINT CERTIFICATE
+// ════════════════════════════════
+function printCert() {
+  const pct = Math.round(totalScore/400*100);
+  let msg = pct>=90 ? 'Outstanding! You demonstrated excellent knowledge of job interview skills.' :
+            pct>=80 ? 'Excellent! You showed strong understanding of interview skills and vocabulary.' :
+            pct>=70 ? 'Good work! You showed solid understanding of the topic.' :
+                      'Good effort! Continue reviewing to strengthen your skills.';
+  document.getElementById('certPrintScore').textContent = totalScore + ' / 400 pts · ' + pct + '%';
+  document.getElementById('certPrintMsg').textContent = msg;
+  document.getElementById('certPrintWrap').style.display = 'block';
+  window.print();
+  setTimeout(() => { document.getElementById('certPrintWrap').style.display = 'none'; }, 1000);
+}
+ 
+// ════════════════════════════════
+// INIT
+// ════════════════════════════════
+buildPredict();
+buildGaps3();
+buildRead();
+buildCompMCQ();
+buildVocab();
+buildJPMCQ();
+buildDanielTF();
+buildSarahTF();
+buildDos();
+buildDisc();
+</script>
+<!-- SAVE / LOAD BAR -->
+<div class="save-bar">
+  <button class="save-btn" onclick="saveProgress()">💾 Save Progress</button>
+  <label class="save-btn" style="cursor:pointer;margin:0">
+    📂 Load Progress
+    <input type="file" accept=".json" id="loadFileInput" onchange="loadProgress(this)" style="display:none">
+  </label>
+  <span class="save-msg" id="saveMsg"></span>
+</div>
+ 
+<!-- PRINT-ONLY CERTIFICATE (hidden on screen, visible when printing) -->
+<div class="cert-print-wrap" style="display:none" id="certPrintWrap">
+  <div class="cert-print-inner">
+    <div class="cert-print-logo">🏆</div>
+    <div class="cert-print-course">GED 100 · Workplace Essentials</div>
+    <div class="cert-print-title">Certificate of Completion</div>
+    <div class="cert-print-sub">Job Interview Skills in English — B1 Lab</div>
+    <div class="cert-print-score" id="certPrintScore"></div>
+    <div class="cert-print-msg" id="certPrintMsg"></div>
+    <div class="cert-print-footer">
+      Designed by Nazila Motahari &nbsp;·&nbsp; Text by Terry Prosser &nbsp;·&nbsp; HCT · Abu Dhabi
+    </div>
+  </div>
+</div>
+ 
+</body>
+</html>
